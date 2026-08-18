@@ -77,9 +77,12 @@ function resolve(path) {
 }
 
 function currentPage() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  const withAnchor = path.split('#')[0];
-  return withAnchor;
+  const path = window.location.pathname.split(/[?#]/)[0];
+  const root = document.body.getAttribute('data-root') || './';
+  const depth = (root.match(/\.\.\//g) || []).length;
+  const segments = path.split('/').filter(Boolean);
+  if (!(1 + depth)) return 'index.html';
+  return segments.slice(-(1 + depth)).join('/') || 'index.html';
 }
 
 /* ------------------------------------------------------------------
