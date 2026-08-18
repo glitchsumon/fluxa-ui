@@ -16,18 +16,48 @@ buttons — instead of full background sweeps.
 - Dark mode out of the box (`data-theme`, system-aware)
 - Keyboard-first and screen-reader friendly throughout
 
+## Installation
+
+```bash
+npm install fluxa-ui
+```
+
 ## Quick start
 
+With a bundler (Vite, webpack, Rollup…):
+
+```js
+import 'fluxa-ui/dist/fluxa-ui.css';
+import { Fluxa } from 'fluxa-ui';
+
+Fluxa.init(document);
+```
+
+Without a build step — link the files straight from `node_modules`:
+
 ```html
-<link rel="stylesheet" href="dist/fluxa-ui.css" />
-<script type="module" src="dist/fluxa.js"></script>
+<link rel="stylesheet" href="/node_modules/fluxa-ui/dist/fluxa-ui.css" />
+<script type="module" src="/node_modules/fluxa-ui/dist/fluxa.js"></script>
 
 <button class="fx-btn fx-btn-primary">Save changes</button>
 ```
 
-For the full guide, components and a working dashboard demo, open the docs:
+Or from a CDN (jsDelivr, served from the GitHub repo):
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/glitchsumon/fluxa-ui@main/dist/fluxa-ui.css" />
+<script type="module" src="https://cdn.jsdelivr.net/gh/glitchsumon/fluxa-ui@main/dist/fluxa.js"></script>
+```
+
+That's it — no configuration. Components are wired declaratively from your markup
+(see [JavaScript](#javascript)). For the full guide, components and a working
+dashboard demo, open the live docs:
+<https://glitchsumon.github.io/fluxa-ui/>.
+
+### Development (working on Fluxa itself)
 
 ```bash
+npm install
 npm run dev          # docs dev server
 npm run docs         # production build of the docs site
 npm run preview      # preview the built docs

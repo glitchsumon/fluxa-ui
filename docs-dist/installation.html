@@ -37,8 +37,10 @@ yarn add fluxa-ui</code></pre>
             </div>
           </div>
           <p class="fx-text-sm fx-text-muted">
-            The package ships compiled <span class="fx-code">dist/fluxa.js</span> (ES module +
-            UMD) and <span class="fx-code">dist/fluxa.css</span> (minified).
+            The package ships compiled <span class="fx-code">dist/fluxa.js</span> (ES module)
+            and <span class="fx-code">dist/fluxa-ui.css</span> (minified). A
+            <span class="fx-code">dist/fluxa.umd.cjs</span> UMD build is included for classic
+            script tags.
           </p>
 
           <h2 class="fx-doc-h2 fx-heading-3">Import in your source</h2>
@@ -46,7 +48,7 @@ yarn add fluxa-ui</code></pre>
             <div class="fx-doc-code">
               <div class="fx-doc-code-header"><span class="fx-doc-code-lang">CSS</span></div>
               <pre><code>/* main.css */
-@import "fluxa-ui/dist/fluxa.css";</code></pre>
+@import "fluxa-ui/dist/fluxa-ui.css";</code></pre>
             </div>
           </div>
           <div class="fx-doc-block">
@@ -68,9 +70,9 @@ Fluxa.Toast.success('Ready');</code></pre>
             <div class="fx-doc-code">
               <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
               <pre><code>&lt;link rel="stylesheet"
-      href="https://unpkg.com/fluxa-ui@1.0.0/dist/fluxa.css"&gt;
+      href="https://unpkg.com/fluxa-ui@1.0.0/dist/fluxa-ui.css"&gt;
 
-&lt;script src="https://unpkg.com/fluxa-ui@1.0.0/dist/fluxa.js" defer&gt;&lt;/script&gt;</code></pre>
+&lt;script type="module" src="https://unpkg.com/fluxa-ui@1.0.0/dist/fluxa.js"&gt;&lt;/script&gt;</code></pre>
             </div>
           </div>
           <div class="fx-alert fx-alert-info fx-mt-4">
@@ -90,8 +92,8 @@ Fluxa.Toast.success('Ready');</code></pre>
           <div class="fx-doc-block">
             <div class="fx-doc-code">
               <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
-              <pre><code>&lt;link rel="stylesheet" href="css/fluxa.css"&gt;
-&lt;script src="js/fluxa.js" defer&gt;&lt;/script&gt;</code></pre>
+              <pre><code>&lt;link rel="stylesheet" href="css/fluxa-ui.css"&gt;
+&lt;script type="module" src="js/fluxa.js"&gt;&lt;/script&gt;</code></pre>
             </div>
           </div>
 
@@ -104,8 +106,9 @@ Fluxa.Toast.success('Ready');</code></pre>
                     <tr><th>File</th><th>Purpose</th><th>Size (gzip)</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td class="fx-table-cell-main">fluxa.css</td><td>Complete framework stylesheet</td><td>~14.4 kB</td></tr>
-                    <tr><td class="fx-table-cell-main">fluxa.js</td><td>Interactive components (ES + UMD)</td><td>~11.4 kB</td></tr>
+                    <tr><td class="fx-table-cell-main">fluxa-ui.css</td><td>Complete framework stylesheet</td><td>~14.4 kB</td></tr>
+                    <tr><td class="fx-table-cell-main">fluxa.js</td><td>Interactive components (ES module)</td><td>~11.4 kB</td></tr>
+                    <tr><td class="fx-table-cell-main">fluxa.umd.cjs</td><td>UMD build for classic script tags</td><td>~10.4 kB</td></tr>
                     <tr><td class="fx-table-cell-main">fluxa.js.map</td><td>Source maps</td><td>—</td></tr>
                   </tbody>
                 </table>
