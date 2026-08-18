@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Button — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Button</h1>
+            <p>
+              The signature <em>Edge Motion</em> component. On hover a hairline accent draws
+              in along the bottom edge and trailing icons step forward — no flat color sweeps.
+            </p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Variants</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview-toolbar">
+              <span class="fx-doc-preview-label">Preview</span>
+              <span class="fx-doc-preview-tools"></span>
+            </div>
+            <div class="fx-doc-preview fx-doc-preview-row">
+              <button class="fx-btn fx-btn-primary">Primary</button>
+              <button class="fx-btn fx-btn-secondary">Secondary</button>
+              <button class="fx-btn fx-btn-soft">Soft</button>
+              <button class="fx-btn fx-btn-outline">Outline</button>
+              <button class="fx-btn fx-btn-ghost">Ghost</button>
+            </div>
+            <div class="fx-doc-preview fx-doc-preview-row" style="border-block-start: 1px solid var(--fx-color-border-subtle)">
+              <button class="fx-btn fx-btn-success">Success</button>
+              <button class="fx-btn fx-btn-danger">Danger</button>
+              <button class="fx-btn fx-btn-warning">Warning</button>
+              <button class="fx-btn fx-btn-primary" disabled>Disabled</button>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;button class="fx-btn fx-btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-soft"&gt;Soft&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-outline"&gt;Outline&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-success"&gt;Success&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-danger"&gt;Danger&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-primary" disabled&gt;Disabled&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Sizes</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row fx-items-end">
+              <button class="fx-btn fx-btn-primary fx-btn-sm">Small</button>
+              <button class="fx-btn fx-btn-primary">Default</button>
+              <button class="fx-btn fx-btn-primary fx-btn-lg">Large</button>
+              <button class="fx-btn fx-btn-icon fx-btn-secondary" aria-label="Settings">
+                <svg style="width: 1em; height: 1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+              </button>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;button class="fx-btn fx-btn-primary fx-btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-primary"&gt;Default&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-primary fx-btn-lg"&gt;Large&lt;/button&gt;
+&lt;button class="fx-btn fx-btn-icon fx-btn-secondary" aria-label="Settings"&gt;…&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Edge Motion &amp; loading</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row">
+              <button class="fx-btn fx-btn-primary">
+                Continue
+                <svg class="fx-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <button class="fx-btn fx-btn-secondary fx-btn-loading" data-fx-demo-loading>
+                <span class="fx-spinner"></span>
+                <span class="fx-btn-label">Saving…</span>
+              </button>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;!-- icon steps forward on hover (Edge Motion) --&gt;
+&lt;button class="fx-btn fx-btn-primary"&gt;
+  Continue
+  &lt;svg class="fx-btn-icon" …&gt;…&lt;/svg&gt;
+&lt;/button&gt;
+
+&lt;!-- loading: label dims, spinner shows --&gt;
+&lt;button class="fx-btn fx-btn-secondary fx-btn-loading"&gt;
+  &lt;span class="fx-spinner"&gt;&lt;/span&gt;
+  &lt;span class="fx-btn-label"&gt;Saving…&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Button group</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row">
+              <div class="fx-btn-group">
+                <button class="fx-btn fx-btn-secondary" aria-pressed="true">Day</button>
+                <button class="fx-btn fx-btn-secondary" aria-pressed="false">Week</button>
+                <button class="fx-btn fx-btn-secondary" aria-pressed="false">Month</button>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;div class="fx-btn-group"&gt;
+  &lt;button class="fx-btn fx-btn-secondary" aria-pressed="true"&gt;Day&lt;/button&gt;
+  &lt;button class="fx-btn fx-btn-secondary"&gt;Week&lt;/button&gt;
+  &lt;button class="fx-btn fx-btn-secondary"&gt;Month&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">States &amp; accessibility</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item"><strong>Default · Hover · Active · Focus-visible · Disabled</strong> — all styled with transition tokens.</div>
+                <div class="fx-list-item">Use real <span class="fx-code">&lt;button&gt;</span> or <span class="fx-code">&lt;a role="button"&gt;</span> with a href.</div>
+                <div class="fx-list-item">Never disable with only CSS — use the <span class="fx-code">disabled</span> attribute; it removes pointer interaction and is announced by screen readers.</div>
+                <div class="fx-list-item">Icon-only buttons need an <span class="fx-code">aria-label</span>.</div>
+                <div class="fx-list-item">Focus ring uses <span class="fx-code">:focus-visible</span> — keyboard users see it, mouse users don't.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

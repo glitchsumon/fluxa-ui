@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stepper — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Stepper</h1>
+            <p>Three-state progress rail for multi-step flows: numbered markers, connecting
+            lines, and completion accents. Pure CSS — you own the state.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Demo</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-stepper" role="list" aria-label="Setup progress">
+                <div class="fx-step is-complete" role="listitem">
+                  <span class="fx-step-marker" aria-hidden="true">
+                    <svg style="width: 1rem; height: 1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                  </span>
+                  <span class="fx-step-label">Account</span>
+                </div>
+                <div class="fx-step is-active" role="listitem">
+                  <span class="fx-step-marker" aria-hidden="true"><span class="fx-sr-only">2</span></span>
+                  <span class="fx-step-label">Plan</span>
+                </div>
+                <div class="fx-step" role="listitem">
+                  <span class="fx-step-marker" aria-hidden="true">3</span>
+                  <span class="fx-step-label">Billing</span>
+                </div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;div class="fx-stepper" role="list"&gt;
+  &lt;div class="fx-step is-complete" role="listitem"&gt;
+    &lt;span class="fx-step-marker" aria-hidden="true"&gt;
+      &lt;svg&gt;…check…&lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;span class="fx-step-label"&gt;Account&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="fx-step is-active" role="listitem"&gt;
+    &lt;span class="fx-step-marker" aria-hidden="true"&gt;2&lt;/span&gt;
+    &lt;span class="fx-step-label"&gt;Plan&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="fx-step" role="listitem"&gt;
+    &lt;span class="fx-step-marker" aria-hidden="true"&gt;3&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">States &amp; accessibility</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item"><span class="fx-code">is-complete</span> draws the check and fills the connector line.</div>
+                <div class="fx-list-item"><span class="fx-code">is-active</span> rings the current marker in the primary color.</div>
+                <div class="fx-list-item">Pair with a visible or <span class="fx-code">sr-only</span> "Step X of Y · Label" summary for assistive tech.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

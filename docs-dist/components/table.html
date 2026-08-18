@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Table — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Table</h1>
+            <p>
+              Structured data tables. Rows draw a hairline accent down their leading edge on
+              hover — data moves, not just the highlight.
+            </p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Basic</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-table-wrap">
+                <table class="fx-table">
+                  <thead>
+                    <tr><th>Member</th><th>Role</th><th>Status</th><th>Last active</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="fx-table-cell-main">Ada Lovelace</td><td class="fx-table-cell-muted">Designer</td><td><span class="fx-badge fx-badge-success">Active</span></td><td class="fx-table-cell-muted">2h ago</td></tr>
+                    <tr><td class="fx-table-cell-main">Alan Turing</td><td class="fx-table-cell-muted">Engineer</td><td><span class="fx-badge fx-badge-primary">Invited</span></td><td class="fx-table-cell-muted">—</td></tr>
+                    <tr><td class="fx-table-cell-main">Grace Hopper</td><td class="fx-table-cell-muted">Engineer</td><td><span class="fx-badge fx-badge-warning">Away</span></td><td class="fx-table-cell-muted">6h ago</td></tr>
+                    <tr><td class="fx-table-cell-main">Katherine Johnson</td><td class="fx-table-cell-muted">Researcher</td><td><span class="fx-badge fx-badge-success">Active</span></td><td class="fx-table-cell-muted">1d ago</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;div class="fx-table-wrap"&gt;
+  &lt;table class="fx-table"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Member&lt;/th&gt;&lt;th&gt;Role&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td class="fx-table-cell-main"&gt;Ada Lovelace&lt;/td&gt;
+        &lt;td class="fx-table-cell-muted"&gt;Designer&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Selected row</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-table-wrap">
+                <table class="fx-table">
+                  <thead><tr><th>Task</th><th>Owner</th><th>Priority</th></tr></thead>
+                  <tbody>
+                    <tr><td class="fx-table-cell-main">Publish framework</td><td class="fx-table-cell-muted">ADA</td><td><span class="fx-badge fx-badge-danger">High</span></td></tr>
+                    <tr class="fx-table-row-selected"><td class="fx-table-cell-main">Write docs shell</td><td class="fx-table-cell-muted">ALAN</td><td><span class="fx-badge fx-badge-primary">Med</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Ship dashboard demo</td><td class="fx-table-cell-muted">GRACE</td><td><span class="fx-badge fx-badge-success">Low</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;tr class="fx-table-row-selected"&gt;…&lt;/tr&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Variants &amp; accessibility</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item"><span class="fx-code">fx-table-compact</span> tightens padding for dense data.</div>
+                <div class="fx-list-item"><span class="fx-code">fx-table-striped</span> for alternating row shading at high data density.</div>
+                <div class="fx-list-item">Wrap in <span class="fx-code">fx-table-wrap</span> for horizontal scrolling on mobile.</div>
+                <div class="fx-list-item">Selection relies on a class, not color alone — pair with a checkmark or <span class="fx-code">aria-pressed</span> where actions exist.</div>
+                <div class="fx-list-item">Use real <span class="fx-code">&lt;th scope="col"&gt;</span> for column headers.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

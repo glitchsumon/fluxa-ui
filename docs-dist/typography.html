@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Typography — Fluxa UI</title>
+    <script type="module" crossorigin src="./assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="./">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Typography</h1>
+            <p>
+              Tight tracking, a firm weight ramp and generous line length. Typography carries
+              the “premium & structured” feel of Fluxa UI.
+            </p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Type scale</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <p class="fx-display fx-mb-2">Display — Structured Motion</p>
+              <h1 class="fx-heading-1">Heading 1</h1>
+              <h2 class="fx-heading-2">Heading 2</h2>
+              <h3 class="fx-heading-3">Heading 3</h3>
+              <h4 class="fx-heading-4">Heading 4</h4>
+              <h5 class="fx-heading-5">Heading 5</h5>
+              <h6 class="fx-heading-6">Heading 6</h6>
+              <p>Body — the default is 14&nbsp;px at 1.55 line height for dense, data-driven interfaces.</p>
+              <p class="fx-text-sm fx-text-muted">Small — used for labels and meta text.</p>
+              <span class="fx-caption">Caption — uppercase overline</span>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Markup</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;h1 class="fx-heading-1"&gt;Heading 1&lt;/h1&gt;
+&lt;p&gt;Body copy&lt;/p&gt;
+&lt;p class="fx-text-sm fx-text-muted"&gt;Small &amp; muted&lt;/p&gt;
+&lt;span class="fx-caption"&gt;Overline&lt;/span&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Text utilities</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <p class="fx-text-muted">.fx-text-muted</p>
+              <p class="fx-text-subtle">.fx-text-subtle</p>
+              <p class="fx-text-danger">.fx-text-danger</p>
+              <p class="fx-text-success">.fx-text-success</p>
+              <p class="fx-text-warning">.fx-text-warning</p>
+              <p class="fx-text-info">.fx-text-info</p>
+              <p class="fx-text-center">.fx-text-center</p>
+              <p class="fx-text-lg fx-font-mono">.fx-font-mono at .fx-text-lg</p>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;p class="fx-text-muted"&gt;Secondary information&lt;/p&gt;
+&lt;p class="fx-text-success"&gt;Success state&lt;/p&gt;
+&lt;p class="fx-text-lg fx-text-center"&gt;Centered, large&lt;/p&gt;
+&lt;span class="fx-code"&gt;inline code&lt;/span&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Fonts</h2>
+          <p class="fx-text-sm fx-text-muted fx-mb-4">
+            Fluxa ships with a tuned system stack — nothing to download. Docs use the same
+            stack; swap <span class="fx-code">--fx-font-sans</span> to adopt a custom font:
+          </p>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">CSS</span></div>
+              <pre><code>:root {
+  --fx-font-sans: 'Inter', system-ui, sans-serif;
+  --fx-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

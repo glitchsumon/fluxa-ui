@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design tokens — Fluxa UI</title>
+    <script type="module" crossorigin src="./assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="./">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Design tokens</h1>
+            <p>
+              Every value in Fluxa UI flows from CSS custom properties. Tokens keep the
+              framework consistent and make theming a single-source-of-truth change.
+            </p>
+          </div>
+
+          <div class="fx-alert fx-alert-primary">
+            <svg class="fx-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+            <div class="fx-alert-content">
+              <div class="fx-alert-body">
+                Tokens are grouped into a raw palette (physical values) and a semantic layer
+                (what components consume). Override the semantic layer to re-theme the
+                framework without touching components.
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Naming convention</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-table-wrap">
+                <table class="fx-table fx-table-compact">
+                  <thead><tr><th>Group</th><th>Prefix</th><th>Example</th></tr></thead>
+                  <tbody>
+                    <tr><td class="fx-table-cell-main">Color</td><td><span class="fx-code">--fx-color-*</span></td><td><span class="fx-code">--fx-color-primary</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Spacing</td><td><span class="fx-code">--fx-space-*</span></td><td><span class="fx-code">--fx-space-4</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Typography</td><td><span class="fx-code">--fx-text-*</span></td><td><span class="fx-code">--fx-text-base</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Radius</td><td><span class="fx-code">--fx-radius-*</span></td><td><span class="fx-code">--fx-radius-md</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Shadow</td><td><span class="fx-code">--fx-shadow-*</span></td><td><span class="fx-code">--fx-shadow-md</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Motion</td><td><span class="fx-code">--fx-duration-*</span></td><td><span class="fx-code">--fx-duration-normal</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Layer</td><td><span class="fx-code">--fx-z-*</span></td><td><span class="fx-code">--fx-z-modal</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Spacing scale</h2>
+          <p class="fx-text-sm fx-text-muted fx-mb-4">A 4&nbsp;px base scale — rhythm, not guesswork.</p>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-stack fx-stack-sm">
+                <div class="fx-flex fx-items-center fx-gap-3">
+                  <span class="fx-code" style="width: 6rem">--fx-space-1</span>
+                  <div style="height: 1rem; width: 0.25rem; background: var(--fx-color-primary); border-radius: 2px"></div>
+                </div>
+                <div class="fx-flex fx-items-center fx-gap-3">
+                  <span class="fx-code" style="width: 6rem">--fx-space-2</span>
+                  <div style="height: 1rem; width: 0.5rem; background: var(--fx-color-primary); border-radius: 2px"></div>
+                </div>
+                <div class="fx-flex fx-items-center fx-gap-3">
+                  <span class="fx-code" style="width: 6rem">--fx-space-4</span>
+                  <div style="height: 1rem; width: 1rem; background: var(--fx-color-primary); border-radius: 2px"></div>
+                </div>
+                <div class="fx-flex fx-items-center fx-gap-3">
+                  <span class="fx-code" style="width: 6rem">--fx-space-8</span>
+                  <div style="height: 1rem; width: 2rem; background: var(--fx-color-primary); border-radius: 2px"></div>
+                </div>
+                <div class="fx-flex fx-items-center fx-gap-3">
+                  <span class="fx-code" style="width: 6rem">--fx-space-12</span>
+                  <div style="height: 1rem; width: 3rem; background: var(--fx-color-primary); border-radius: 2px"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Radius scale</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row">
+              <div class="fx-stack fx-stack-sm fx-items-center">
+                <div class="fx-flex fx-items-center fx-gap-3"><span class="fx-code" style="width: 6.5rem">--fx-radius-xs</span><div style="width: 2.5rem; height: 2.5rem; border: 1px solid var(--fx-color-border-strong); border-radius: var(--fx-radius-xs)"></div></div>
+                <div class="fx-flex fx-items-center fx-gap-3"><span class="fx-code" style="width: 6.5rem">--fx-radius-sm</span><div style="width: 2.5rem; height: 2.5rem; border: 1px solid var(--fx-color-border-strong); border-radius: var(--fx-radius-sm)"></div></div>
+                <div class="fx-flex fx-items-center fx-gap-3"><span class="fx-code" style="width: 6.5rem">--fx-radius-md</span><div style="width: 2.5rem; height: 2.5rem; border: 1px solid var(--fx-color-border-strong); border-radius: var(--fx-radius-md)"></div></div>
+                <div class="fx-flex fx-items-center fx-gap-3"><span class="fx-code" style="width: 6.5rem">--fx-radius-lg</span><div style="width: 2.5rem; height: 2.5rem; border: 1px solid var(--fx-color-border-strong); border-radius: var(--fx-radius-lg)"></div></div>
+                <div class="fx-flex fx-items-center fx-gap-3"><span class="fx-code" style="width: 6.5rem">--fx-radius-xl</span><div style="width: 2.5rem; height: 2.5rem; border: 1px solid var(--fx-color-border-strong); border-radius: var(--fx-radius-xl)"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Motion scale</h2>
+          <p class="fx-text-sm fx-text-muted fx-mb-4">
+            Short durations, one easing family, one travel distance. Everything stays calm.
+          </p>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-table-wrap">
+                <table class="fx-table fx-table-compact">
+                  <thead><tr><th>Token</th><th>Value</th><th>Used for</th></tr></thead>
+                  <tbody>
+                    <tr><td class="fx-table-cell-main">--fx-duration-fast</td><td>120ms</td><td>color, border, opacity</td></tr>
+                    <tr><td class="fx-table-cell-main">--fx-duration-normal</td><td>180ms</td><td>transform, chevrons, focus</td></tr>
+                    <tr><td class="fx-table-cell-main">--fx-duration-slow</td><td>300ms</td><td>overlay entrance, accordion</td></tr>
+                    <tr><td class="fx-table-cell-main">--fx-ease-out</td><td>cubic-bezier(0.16, 1, 0.3, 1)</td><td>entrances</td></tr>
+                    <tr><td class="fx-table-cell-main">--fx-ease-in-out</td><td>cubic-bezier(0.65, 0, 0.35, 1)</td><td>indicator travel</td></tr>
+                    <tr><td class="fx-table-cell-main">--fx-motion-translate</td><td>2px</td><td>edge micro-motion</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Customizing</h2>
+          <p class="fx-text-sm fx-text-muted fx-mb-4">
+            Override tokens in a layer after the framework, or fork the token file. Example:
+          </p>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">CSS</span></div>
+              <pre><code>:root {
+  --fx-color-primary: #334155;   /* your brand color */
+  --fx-radius-md: 10px;          /* your corner style */
+  --fx-space-4: 18px;            /* your rhythm */
+  --fx-font-sans: 'Space Grotesk', system-ui, sans-serif;
+}
+
+:root[data-theme='dark'] {
+  --fx-palette-surface: #0b0d12; /* dedicated dark surface */
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

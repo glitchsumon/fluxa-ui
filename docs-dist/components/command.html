@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Command palette — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Command palette</h1>
+            <p>On-screen <kbd class="fx-kbd">Ctrl</kbd>+<kbd class="fx-kbd">K</kbd> search with
+            arrow navigation, Home/End, and data-driven groups. The palette builds its own
+            markup, so you wire data — not DOM.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Demo</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row">
+              <button class="fx-btn fx-btn-primary" data-fx-command>Open palette</button>
+              <span class="fx-text-sm fx-text-muted">or press <kbd class="fx-kbd">Ctrl K</kbd></span>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML + JS</span></div>
+              <pre><code>&lt;!-- declarative — default actions --&gt;
+&lt;button data-fx-command&gt;Open palette&lt;/button&gt;
+
+&lt;!-- fully data-driven --&gt;
+&lt;script&gt;
+  Fluxa.command.open({
+    groups: [
+      {
+        label: 'Actions',
+        items: [
+          { id: 'dark', label: 'Toggle dark mode', icon: '…', action: () => toggle() },
+          { id: 'pages', label: 'Go to dashboard', hint: 'G D', action: () => nav() }
+        ]
+      }
+    ]
+  });
+&lt;/script&gt;
+
+&lt;!-- global shortcut is bound automatically: Ctrl/&#8984; + K --&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Item model</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item">Each item: <span class="fx-code">id · label · hint · keywords · icon (inline SVG string) · action</span>.</div>
+                <div class="fx-list-item">Filtering is substring match across label, keywords and hint.</div>
+                <div class="fx-list-item">The generated surface is a focus-trapped overlay: <kbd class="fx-kbd">Esc</kbd> closes, click outside closes too.</div>
+                <div class="fx-list-item">API: <span class="fx-code">Fluxa.command.open(config) · close() · toggle(config)</span>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

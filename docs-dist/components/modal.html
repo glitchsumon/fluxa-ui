@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modal — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Modal</h1>
+            <p>Keyboard-first dialogs. Focus is trapped, page scroll locks, and
+            <kbd class="fx-kbd">Esc</kbd> closes the top-most overlay only.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Demo</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row">
+              <button class="fx-btn fx-btn-primary" data-fx-modal="demo-modal">Open modal</button>
+              <button class="fx-btn" data-fx-modal="demo-modal-sm">Small</button>
+              <button class="fx-btn" data-fx-modal="demo-modal-lg">Large</button>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;button class="fx-btn fx-btn-primary" data-fx-modal="confirm"&gt;
+  Open modal
+&lt;/button&gt;
+
+&lt;div id="confirm" class="fx-modal" role="dialog" aria-modal="true"
+     aria-labelledby="confirm-title"&gt;
+  &lt;div class="fx-modal-backdrop"&gt;&lt;/div&gt;
+  &lt;div class="fx-modal-panel"&gt;
+    &lt;div class="fx-modal-header"&gt;
+      &lt;div class="fx-modal-title" id="confirm-title"&gt;Confirm reset&lt;/div&gt;
+      &lt;button class="fx-modal-close" type="button" aria-label="Close dialog"&gt;…&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="fx-modal-body"&gt;&#8230;&lt;/div&gt;
+    &lt;div class="fx-modal-footer"&gt;
+      &lt;button class="fx-btn" data-fx-modal-close&gt;Cancel&lt;/button&gt;
+      &lt;button class="fx-btn fx-btn-primary" data-fx-modal-close&gt;Reset&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Sizes</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item"><span class="fx-code">fx-modal-sm</span> — compact, max-width 22rem.</div>
+                <div class="fx-list-item"><span class="fx-code">fx-modal-lg</span> — detail views, max-width 42rem.</div>
+                <div class="fx-list-item"><span class="fx-code">fx-modal-xl</span> — wide contexts, max-width 56rem.</div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;div id="modal-x" class="fx-modal fx-modal-lg" role="dialog" …&gt;…&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Keyboard &amp; API</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item"><kbd class="fx-kbd">Esc</kbd> closes the top-most overlay only — nesting is safe.</div>
+                <div class="fx-list-item"><kbd class="fx-kbd">Tab</kbd> / <kbd class="fx-kbd">Shift+Tab</kbd> cycle inside the panel.</div>
+                <div class="fx-list-item">Closing restores focus to the element that opened it.</div>
+                <div class="fx-list-item">Programmatic: <span class="fx-code">Fluxa.modal.open('#id')</span> and <span class="fx-code">Fluxa.modal.close('#id')</span>.</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="demo-modal" class="fx-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+            <div class="fx-modal-backdrop"></div>
+            <div class="fx-modal-panel">
+              <div class="fx-modal-header">
+                <div>
+                  <div class="fx-modal-title" id="demo-modal-title">Confirm reset</div>
+                  <div class="fx-modal-description">This action cannot be undone.</div>
+                </div>
+                <button class="fx-modal-close" type="button" aria-label="Close dialog">
+                  <svg style="width: 1rem; height: 1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+              <div class="fx-modal-body">
+                <p>This will remove all local content and reset preferences to the defaults. You can restore from a backup within 30 days.</p>
+              </div>
+              <div class="fx-modal-footer">
+                <button class="fx-btn" data-fx-modal-close>Cancel</button>
+                <button class="fx-btn fx-btn-primary" data-fx-modal-close>Reset workspace</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="demo-modal-sm" class="fx-modal fx-modal-sm" role="dialog" aria-modal="true" aria-labelledby="demo-modal-sm-title">
+            <div class="fx-modal-backdrop"></div>
+            <div class="fx-modal-panel">
+              <div class="fx-modal-header">
+                <div class="fx-modal-title" id="demo-modal-sm-title">Delete item?</div>
+                <button class="fx-modal-close" type="button" aria-label="Close dialog">
+                  <svg style="width: 1rem; height: 1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+              <div class="fx-modal-body"><p>Type <span class="fx-code">delete</span> to confirm.</p></div>
+              <div class="fx-modal-footer"><button class="fx-btn fx-btn-danger" data-fx-modal-close>Delete</button></div>
+            </div>
+          </div>
+
+          <div id="demo-modal-lg" class="fx-modal fx-modal-lg" role="dialog" aria-modal="true" aria-labelledby="demo-modal-lg-title">
+            <div class="fx-modal-backdrop"></div>
+            <div class="fx-modal-panel">
+              <div class="fx-modal-header">
+                <div class="fx-modal-title" id="demo-modal-lg-title">Add a new member</div>
+                <button class="fx-modal-close" type="button" aria-label="Close dialog">
+                  <svg style="width: 1rem; height: 1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+              <div class="fx-modal-body">
+                <p>Roomier surface for forms and detail views.</p>
+              </div>
+              <div class="fx-modal-footer">
+                <button class="fx-btn" data-fx-modal-close>Cancel</button>
+                <button class="fx-btn fx-btn-primary" data-fx-modal-close>Send invite</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

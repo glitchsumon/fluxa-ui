@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Utilities — Fluxa UI</title>
+    <script type="module" crossorigin src="./assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="./">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Utilities</h1>
+            <p>
+              A deliberately small utility set — enough to be productive, small enough to
+              memorize. Utilities are token-driven and follow the same
+              <span class="fx-code">fx-*</span> naming.
+            </p>
+          </div>
+
+          <div class="fx-alert fx-alert-primary">
+            <svg class="fx-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            <div class="fx-alert-content">
+              <div class="fx-alert-body">
+                This is not Tailwind. Prefer semantic classes for structured layouts; reach for
+                utilities to fine-tune spacing and alignment.
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Display &amp; position</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-table-wrap">
+                <table class="fx-table fx-table-compact">
+                  <thead><tr><th>Class</th><th>Effect</th></tr></thead>
+                  <tbody>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-block / fx-inline / fx-inline-block / fx-hidden</span></td><td>Display modes</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-md-flex · fx-lg-flex · fx-md-hidden</span></td><td>Responsive display</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-relative · fx-absolute · fx-fixed · fx-sticky</span></td><td>Positioning</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-inset-0 · fx-top-0 · fx-right-0</span></td><td>Offset helpers</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Spacing</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-table-wrap">
+                <table class="fx-table fx-table-compact">
+                  <thead><tr><th>Family</th><th>Steps</th><th>Example</th></tr></thead>
+                  <tbody>
+                    <tr><td class="fx-table-cell-main">Padding</td><td>p-1 … p-12</td><td><span class="fx-code">fx-p-4</span>, <span class="fx-code">fx-px-6</span>, <span class="fx-code">fx-py-3</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Margin</td><td>m-1 … m-8</td><td><span class="fx-code">fx-mx-auto</span>, <span class="fx-code">fx-mt-4</span>, <span class="fx-code">fx-mb-6</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Gap (flex/grid)</td><td>gap-1 … gap-8</td><td><span class="fx-code">fx-gap-3</span></td></tr>
+                    <tr><td class="fx-table-cell-main">Stack gap</td><td>stack-xs … stack-xl</td><td><span class="fx-code">fx-stack fx-stack-md</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Flex &amp; grid alignment</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-table-wrap">
+                <table class="fx-table fx-table-compact">
+                  <thead><tr><th>Class</th><th>Effect</th></tr></thead>
+                  <tbody>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-items-center · fx-items-start · fx-items-end</span></td><td>Cross axis</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-justify-between · fx-justify-center · fx-justify-end</span></td><td>Main axis</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-flex-1 · fx-flex-none · fx-grow · fx-shrink-0</span></td><td>Flex sizing</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-grid-cols-1 … 6 · fx-col-span-2 · fx-col-span-full</span></td><td>Grid columns &amp; spans</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Text &amp; surface</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-table-wrap">
+                <table class="fx-table fx-table-compact">
+                  <thead><tr><th>Class</th><th>Effect</th></tr></thead>
+                  <tbody>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-text-center · fx-text-left · fx-text-right · fx-text-nowrap</span></td><td>Alignment</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-text-xs … fx-text-xl</span></td><td>Font sizes</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-font-mono · fx-font-bold · fx-font-italic</span></td><td>Font styles</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-bg-surface · fx-bg-sunken · fx-bg-primary-soft</span></td><td>Surfaces</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-rounded · fx-rounded-lg · fx-shadow · fx-shadow-lg</span></td><td>Radius &amp; elevation</td></tr>
+                    <tr><td class="fx-table-cell-main"><span class="fx-code">fx-truncate · fx-divide-y · fx-w-full · fx-max-w-*</span></td><td>Misc</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

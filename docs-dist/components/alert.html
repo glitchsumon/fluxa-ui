@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alert — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Alert</h1>
+            <p>Inline feedback banners with a hard left accent edge. Dismissible, with actions.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Variants</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-alert fx-alert-primary">
+                <svg class="fx-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+                <div class="fx-alert-content">
+                  <div class="fx-alert-body">Fluxa UI 1.0 is out — everything you need is documented.</div>
+                </div>
+              </div>
+              <div class="fx-alert fx-alert-success">
+                <svg class="fx-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                <div class="fx-alert-content">
+                  <div class="fx-alert-title">Deploy succeeded</div>
+                  <div class="fx-alert-body">Production is live and the dashboard reports healthy.</div>
+                  <div class="fx-alert-actions">
+                    <button class="fx-btn fx-btn-sm fx-btn-soft">View build</button>
+                  </div>
+                </div>
+              </div>
+              <div class="fx-alert fx-alert-warning">
+                <svg class="fx-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+                <div class="fx-alert-content">
+                  <div class="fx-alert-body">Your trial ends in 3 days. The workspace will pause after that.</div>
+                </div>
+              </div>
+              <div class="fx-alert fx-alert-danger">
+                <svg class="fx-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                <div class="fx-alert-content">
+                  <div class="fx-alert-body">Payment failed. Verify your billing details and retry.</div>
+                </div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;div class="fx-alert fx-alert-success"&gt;
+  &lt;svg class="fx-alert-icon" …&gt;…&lt;/svg&gt;
+  &lt;div class="fx-alert-content"&gt;
+    &lt;div class="fx-alert-title"&gt;Deploy succeeded&lt;/div&gt;
+    &lt;div class="fx-alert-body"&gt;…&lt;/div&gt;
+    &lt;div class="fx-alert-actions"&gt;…&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- dismissible --&gt;
+&lt;div class="fx-alert fx-alert-info"&gt;
+  &lt;div class="fx-alert-content"&gt;…&lt;/div&gt;
+  &lt;button class="fx-alert-dismiss" data-fx-alert-close&gt;…&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Notes &amp; accessibility</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item"><span class="fx-code">fx-alert-primary · success · warning · danger · info</span>.</div>
+                <div class="fx-list-item">For time-sensitive errors use <span class="fx-code">role="alert"</span>; for success/neutral flows use <span class="fx-code">role="status"</span> — never both.</div>
+                <div class="fx-list-item">Include an icon per variant for color-independent recognition.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

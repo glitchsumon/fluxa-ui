@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quick start — Fluxa UI</title>
+    <script type="module" crossorigin src="./assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="./">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Quick start</h1>
+            <p>From an empty HTML file to your first interactive component in under a minute.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">1. Link the files</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;link rel="stylesheet" href="https://unpkg.com/fluxa-ui@1.0.0/dist/fluxa.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- your content --&gt;
+  &lt;script src="https://unpkg.com/fluxa-ui@1.0.0/dist/fluxa.js" defer&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">2. Add components</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview-toolbar"><span class="fx-doc-preview-label">Live</span></div>
+            <div class="fx-doc-preview fx-doc-preview-row fx-justify-center">
+              <button class="fx-btn fx-btn-primary" data-fx-modal="#quickstart-modal">
+                Open modal
+              </button>
+              <button class="fx-btn fx-btn-secondary" data-fx-toast data-fx-toast-type="success" data-fx-toast-title="Saved!" data-fx-toast-body="Declarative toasts need zero JavaScript.">
+                Fire toast
+              </button>
+
+              <div class="fx-modal" id="quickstart-modal">
+                <div class="fx-modal-backdrop"></div>
+                <div class="fx-modal-panel">
+                  <div class="fx-modal-header">
+                    <div class="fx-card-title-group">
+                      <h2 class="fx-modal-title">Hello, Fluxa</h2>
+                      <p class="fx-modal-description">Your first declarative modal.</p>
+                    </div>
+                    <button class="fx-modal-close" type="button" aria-label="Close">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1rem; height: 1rem"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    </button>
+                  </div>
+                  <div class="fx-modal-body">
+                    Add <span class="fx-code">data-fx-modal="#id"</span> to any element and it
+                    becomes a trigger. Escape, backdrop click and the close button all work.
+                  </div>
+                  <div class="fx-modal-footer">
+                    <button class="fx-btn fx-btn-ghost" data-fx-modal-close>Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;button class="fx-btn fx-btn-primary" data-fx-modal="#my-modal"&gt;
+  Open modal
+&lt;/button&gt;
+
+&lt;div class="fx-modal" id="my-modal"&gt;
+  &lt;div class="fx-modal-backdrop"&gt;&lt;/div&gt;
+  &lt;div class="fx-modal-panel"&gt;
+    &lt;div class="fx-modal-header"&gt;
+      &lt;h2 class="fx-modal-title" id="my-modal-title"&gt;Hello, Fluxa&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class="fx-modal-body"&gt;…&lt;/div&gt;
+    &lt;div class="fx-modal-footer"&gt;
+      &lt;button class="fx-btn fx-btn-ghost" data-fx-modal-close&gt;Close&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">3. Use the JavaScript API</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">JavaScript</span></div>
+              <pre><code>Fluxa.Modal.open('#my-modal');
+Fluxa.Toast.success('Saved successfully');
+Fluxa.Dropdown.closeAll();
+
+// custom command palette
+Fluxa.Command.open({
+  groups: [{
+    label: 'Actions',
+    items: [{
+      label: 'Toggle dark mode',
+      action: () => Fluxa.Theme.toggle()
+    }]
+  }]
+});</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">4. Dark mode</h2>
+          <p class="fx-text-sm fx-text-muted fx-mb-4">
+            Set an explicit theme on <span class="fx-code">&lt;html&gt;</span> — or omit it to
+            follow the operating system automatically.
+          </p>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;html data-theme="dark"&gt;   &lt;!-- or "light", or nothing = system --&gt;</code></pre>
+            </div>
+          </div>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row">
+              <button class="fx-btn fx-btn-secondary" data-fx-theme-toggle>
+                <svg style="width: 1em; height: 1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+                Toggle theme
+              </button>
+              <button class="fx-btn fx-btn-soft" data-fx-command>Open command menu</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

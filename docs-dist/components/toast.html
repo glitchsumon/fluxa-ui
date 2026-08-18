@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toast — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Toast</h1>
+            <p>Transient notices stacked in a live region. Auto-dismissing, dismissible
+            on demand, and announced without hijacking the reader's current context.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Demo</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row">
+              <button class="fx-btn fx-btn-primary" data-fx-toast="Saved" data-fx-toast-type="success" data-fx-toast-body="Your changes are live.">Success</button>
+              <button class="fx-btn" data-fx-toast="Heads up" data-fx-toast-type="info" data-fx-toast-body="Fluxa UI 1.0 ships tonight.">Info</button>
+              <button class="fx-btn fx-btn-soft" data-fx-toast="Trial ending" data-fx-toast-type="warning" data-fx-toast-body="Renew before Friday.">Warning</button>
+              <button class="fx-btn fx-btn-danger" data-fx-toast="Deploy failed" data-fx-toast-type="danger" data-fx-toast-body="Check the pipeline logs.">Danger</button>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML + JS</span></div>
+              <pre><code>&lt;button data-fx-toast="Saved"
+        data-fx-toast-type="success"
+        data-fx-toast-body="Your changes are live."&gt;Success&lt;/button&gt;
+
+&lt;script&gt;
+  Fluxa.toast.show({
+    title: 'Saved',
+    body: 'Your changes are live.',
+    type: 'success',
+    duration: 4200
+  });
+  // or the shorthands:
+  Fluxa.toast.success('Saved');
+  Fluxa.toast.danger('Deploy failed', 'Check the pipeline logs.');
+&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Options &amp; notes</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item">Options: <span class="fx-code">title · body · type (success|info|warning|danger) · duration · onClose</span>.</div>
+                <div class="fx-list-item">Each toast is <span class="fx-code">role="status"</span> inside one shared live region so readers announce once, non-interruptingly.</div>
+                <div class="fx-list-item">Hover to pause is available on your side — the default duration counts down from <span class="fx-code">duration</span>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

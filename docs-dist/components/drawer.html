@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Drawer — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Drawer</h1>
+            <p>Slide-in panels for filters, detail views and secondary nav. Because they
+            share the overlay engine with modals, drawers stack, trap focus and lock the
+            page scroll.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Demo</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row">
+              <button class="fx-btn fx-btn-primary" data-fx-drawer="demo-drawer">Open drawer</button>
+              <button class="fx-btn" data-fx-drawer="demo-drawer-right">From right</button>
+              <button class="fx-btn" data-fx-drawer="demo-drawer-top">From top</button>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;button data-fx-drawer="filters"&gt;Open drawer&lt;/button&gt;
+
+&lt;div id="filters" class="fx-drawer fx-drawer-left"
+     role="dialog" aria-modal="true" aria-labelledby="filters-title"&gt;
+  &lt;div class="fx-drawer-backdrop"&gt;&lt;/div&gt;
+  &lt;div class="fx-drawer-panel"&gt;
+    &lt;div class="fx-drawer-header"&gt;
+      &lt;div class="fx-drawer-title" id="filters-title"&gt;Filters&lt;/div&gt;
+      &lt;button class="fx-drawer-close" aria-label="Close drawer"&gt;…&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="fx-drawer-body"&gt;&#8230;&lt;/div&gt;
+    &lt;div class="fx-drawer-footer"&gt;&#8230;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Edges</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item"><span class="fx-code">fx-drawer-left</span> and <span class="fx-code">fx-drawer-right</span> — full-height rails.</div>
+                <div class="fx-list-item"><span class="fx-code">fx-drawer-top</span> / <span class="fx-code">fx-drawer-bottom</span> — horizontal rails.</div>
+                <div class="fx-list-item">Override panel width on <span class="fx-code">.fx-drawer-panel</span> inline or via your theme.</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="demo-drawer" class="fx-drawer fx-drawer-left" role="dialog" aria-modal="true" aria-labelledby="demo-drawer-title">
+            <div class="fx-drawer-backdrop"></div>
+            <div class="fx-drawer-panel">
+              <div class="fx-drawer-header">
+                <div class="fx-drawer-title" id="demo-drawer-title">Filters</div>
+                <button class="fx-drawer-close" type="button" aria-label="Close drawer">
+                  <svg style="width: 1rem; height: 1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+              <div class="fx-drawer-body">
+                <label class="fx-form-label" for="demo-drawer-role">Role</label>
+                <select id="demo-drawer-role" class="fx-select">
+                  <option>All roles</option>
+                  <option>Engineer</option>
+                  <option>Designer</option>
+                </select>
+                <label class="fx-form-label fx-mt-3" for="demo-drawer-status">Status</label>
+                <select id="demo-drawer-status" class="fx-select">
+                  <option>Active</option>
+                  <option>Invited</option>
+                  <option>Disabled</option>
+                </select>
+              </div>
+              <div class="fx-drawer-footer">
+                <button class="fx-btn" data-fx-drawer-close>Cancel</button>
+                <button class="fx-btn fx-btn-primary" data-fx-drawer-close>Apply filters</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="demo-drawer-right" class="fx-drawer fx-drawer-right" role="dialog" aria-modal="true" aria-labelledby="demo-drawer-right-title">
+            <div class="fx-drawer-backdrop"></div>
+            <div class="fx-drawer-panel">
+              <div class="fx-drawer-header">
+                <div class="fx-drawer-title" id="demo-drawer-right-title">Detail</div>
+                <button class="fx-drawer-close" type="button" aria-label="Close drawer">
+                  <svg style="width: 1rem; height: 1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+              <div class="fx-drawer-body"><p>Contextual detail panel anchored to the right edge.</p></div>
+            </div>
+          </div>
+
+          <div id="demo-drawer-top" class="fx-drawer fx-drawer-top" role="dialog" aria-modal="true" aria-labelledby="demo-drawer-top-title">
+            <div class="fx-drawer-backdrop"></div>
+            <div class="fx-drawer-panel">
+              <div class="fx-drawer-header">
+                <div class="fx-drawer-title" id="demo-drawer-top-title">Notifications</div>
+                <button class="fx-drawer-close" type="button" aria-label="Close drawer">
+                  <svg style="width: 1rem; height: 1rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+              <div class="fx-drawer-body"><p>Horizontal rail for transient contexts and previews.</p></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

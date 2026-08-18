@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Progress · Spinner · Skeleton — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Progress · Spinner · Skeleton</h1>
+            <p>Loading communication. Native, accessible, and reduced-motion aware.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Progress</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <label class="fx-flex fx-justify-between fx-text-sm fx-text-muted" for="demo-progress-main">
+                <span>Uploading assets</span>
+                <span>64%</span>
+              </label>
+              <progress id="demo-progress-main" class="fx-progress" max="100" value="64">
+                <span class="fx-sr-only">64% complete</span>
+              </progress>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;progress class="fx-progress" max="100" value="64"&gt;
+  &lt;span class="fx-sr-only"&gt;64% complete&lt;/span&gt;
+&lt;/progress&gt;
+
+&lt;!-- indeterminate --&gt;
+&lt;progress class="fx-progress"&gt;Loading…&lt;/progress&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Spinner</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-row fx-items-center" style="gap: 1.5rem">
+              <span class="fx-spinner" role="status" aria-label="Loading"></span>
+              <span class="fx-spinner fx-spinner-primary" role="status" aria-label="Loading"></span>
+              <span class="fx-spinner fx-spinner-sm" role="status" aria-label="Loading"></span>
+              <span class="fx-text-sm fx-text-muted">Reduced-motion aware</span>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;span class="fx-spinner fx-spinner-primary"
+      role="status" aria-label="Loading"&gt;&lt;/span&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Skeleton</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview">
+              <div class="fx-card" style="max-width: 22rem; padding: var(--fx-space-4)">
+                <div class="fx-skeleton" style="width: 40%; height: 0.875rem; margin-block-end: var(--fx-space-3)"></div>
+                <div class="fx-skeleton" style="height: 0.75rem; margin-block-end: var(--fx-space-2)"></div>
+                <div class="fx-skeleton" style="width: 80%; height: 0.75rem"></div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;div class="fx-skeleton" style="width: 40%; height: .875rem"&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Accessibility</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item">Use native <span class="fx-code">&lt;progress&gt;</span>; add a visible text or <span class="fx-code">sr-only</span> label announcing <span class="fx-code">aria-value</span> changes.</div>
+                <div class="fx-list-item">Spinners get <span class="fx-code">role="status"</span> and a label, or point <span class="fx-code">aria-busy</span> at a live region.</div>
+                <div class="fx-list-item">Animated shine/skeleton pauses under <span class="fx-code">prefers-reduced-motion</span>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

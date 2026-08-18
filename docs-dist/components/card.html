@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Card — Fluxa UI</title>
+    <script type="module" crossorigin src="../assets/docs-zGi90J9l.js"></script>
+    <link rel="stylesheet" crossorigin href="../assets/docs-Cwo5BqkG.css">
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Card</h1>
+            <p>
+              Layered surfaces with an <em>edge lift</em>: hovering brightens the border and a
+              fine accent line draws out from the center of the top edge.
+            </p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Basic card</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview">
+              <div class="fx-card" style="max-width: 22rem">
+                <div class="fx-card-header">
+                  <div class="fx-card-title-group">
+                    <div class="fx-card-title">Project fluxa</div>
+                    <div class="fx-card-subtitle">Design system · updated 2h ago</div>
+                  </div>
+                  <span class="fx-badge fx-badge-primary">Active</span>
+                </div>
+                <div class="fx-card-body">
+                  A structured, accessible component framework. Cards carry the layered surface
+                  language across the whole product.
+                </div>
+                <div class="fx-card-footer">
+                  <button class="fx-btn fx-btn-sm fx-btn-soft">Open</button>
+                  <button class="fx-btn fx-btn-sm fx-btn-ghost">Archive</button>
+                </div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;div class="fx-card"&gt;
+  &lt;div class="fx-card-header"&gt;
+    &lt;div class="fx-card-title-group"&gt;
+      &lt;div class="fx-card-title"&gt;Project fluxa&lt;/div&gt;
+      &lt;div class="fx-card-subtitle"&gt;Design system&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span class="fx-badge fx-badge-primary"&gt;Active&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="fx-card-body"&gt;…&lt;/div&gt;
+  &lt;div class="fx-card-footer"&gt;…&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Interactive</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview">
+              <div class="fx-grid fx-grid-cols-sm-2">
+                <div class="fx-card fx-card-interactive">
+                  <div class="fx-card-body fx-stack fx-stack-sm">
+                    <div class="fx-empty-icon" style="width: 2.5rem; height: 2.5rem; margin: 0">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    </div>
+                    <div class="fx-card-title">Onboarding</div>
+                    <p class="fx-text-sm fx-text-muted">Interactive cards lift 2px on hover — restrained, structured motion.</p>
+                  </div>
+                </div>
+                <div class="fx-card fx-card-accents fx-card-accents-info">
+                  <div class="fx-card-body fx-stack fx-stack-sm">
+                    <div class="fx-card-title">Accent variant</div>
+                    <p class="fx-text-sm fx-text-muted">Left accent lines communicate tone: info, success, warning, danger.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;div class="fx-card fx-card-interactive"&gt;…&lt;/div&gt;
+&lt;div class="fx-card fx-card-accents fx-card-accents-info"&gt;…&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Variants</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview">
+              <div class="fx-grid fx-grid-cols-sm-2 fx-grid-cols-md-3">
+                <div class="fx-card fx-card-raised fx-p-4">
+                  <div class="fx-card-title fx-text-base">Raised</div>
+                  <p class="fx-text-sm fx-text-muted fx-mt-1">More elevation for overlay context.</p>
+                </div>
+                <div class="fx-card fx-card-outlined fx-p-4">
+                  <div class="fx-card-title fx-text-base">Outlined</div>
+                  <p class="fx-text-sm fx-text-muted fx-mt-1">Border-only, no resting shadow.</p>
+                </div>
+                <div class="fx-card fx-card-flat fx-p-4">
+                  <div class="fx-card-title fx-text-base">Flat</div>
+                  <p class="fx-text-sm fx-text-muted fx-mt-1">Sunken surface, no border.</p>
+                </div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;div class="fx-card fx-card-raised"&gt;…&lt;/div&gt;
+&lt;div class="fx-card fx-card-outlined"&gt;…&lt;/div&gt;
+&lt;div class="fx-card fx-card-flat"&gt;…&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Notes</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item"><span class="fx-code">fx-card-compact</span> tightens padding for dense content.</div>
+                <div class="fx-list-item">Customize per-instance with <span class="fx-code">--fx-card-bg</span> and <span class="fx-code">--fx-card-border</span>.</div>
+                <div class="fx-list-item">Accessibility: wrap the whole card in a link/button for a fully clickable interactive card — don't add click handlers to a plain <span class="fx-code">&lt;div&gt;</span>.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
