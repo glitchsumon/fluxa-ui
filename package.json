@@ -26,6 +26,12 @@
     "vanilla"
   ],
   "license": "MIT",
+  "author": "avriox7",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glitchsumon/fluxa-ui.git"
+  },
+  "homepage": "https://github.com/glitchsumon/fluxa-ui#readme",
   "scripts": {
     "dev": "vite --config vite.docs.config.js",
     "build": "vite build",
