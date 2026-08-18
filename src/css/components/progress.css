@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Fluxa UI · Components · Progress
+   Linear and circular progress indicators.
+   ========================================================================== */
+
+.fx-progress {
+  --fx-progress-value: 0%;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-surface-sunken);
+  border: 1px solid var(--fx-color-border-subtle);
+  overflow: hidden;
+}
+
+.fx-progress-bar {
+  display: block;
+  height: 100%;
+  width: var(--fx-progress-value);
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-primary);
+  transition: width var(--fx-duration-slow) var(--fx-ease-in-out);
+}
+
+.fx-progress-bar-success { background: var(--fx-color-success); }
+.fx-progress-bar-warning { background: var(--fx-color-warning); }
+.fx-progress-bar-danger { background: var(--fx-color-danger); }
+.fx-progress-bar-info { background: var(--fx-color-info); }
+
+.fx-progress-sm { height: 0.25rem; }
+.fx-progress-lg { height: 0.75rem; }
+
+.fx-progress-indeterminate .fx-progress-bar {
+  width: 35%;
+  animation: fx-progress-indeterminate 1.2s var(--fx-ease-in-out) infinite;
+}
+
+@keyframes fx-progress-indeterminate {
+  0% { transform: translateX(-100%); }
+  60%,
+  100% { transform: translateX(280%); }
+}
+
+/* ------------------------------------------------------------------
+   Circular ring
+   ------------------------------------------------------------------ */
+.fx-progress-circle {
+  --fx-ring-size: 3rem;
+  --fx-ring-color: var(--fx-color-primary);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--fx-ring-size);
+  height: var(--fx-ring-size);
+}
+
+.fx-progress-circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.fx-progress-circle .fx-ring-track {
+  stroke: var(--fx-color-surface-sunken);
+  stroke-width: 5;
+}
+
+.fx-progress-circle .fx-ring-value {
+  stroke: var(--fx-ring-color);
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--fx-duration-slow) var(--fx-ease-in-out);
+}
+
+.fx-progress-circle .fx-ring-label {
+  position: absolute;
+  font-size: var(--fx-text-xs);
+  font-weight: 650;
+  color: var(--fx-color-text-muted);
+}
+
+.fx-progress-circle-sizesm { --fx-ring-size: 2rem; }
+.fx-progress-circle-sizelg { --fx-ring-size: 4rem; }
+
+.fx-progress-circle-success { --fx-ring-color: var(--fx-color-success); }
+.fx-progress-circle-warning { --fx-ring-color: var(--fx-color-warning); }
+.fx-progress-circle-danger { --fx-ring-color: var(--fx-color-danger); }

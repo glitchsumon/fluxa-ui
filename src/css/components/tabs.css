@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Fluxa UI · Components · Tabs
+   Underlined tabs with a travelling indicator (Edge Motion).
+   ========================================================================== */
+
+.fx-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.fx-tablist {
+  display: inline-flex;
+  align-items: stretch;
+  gap: var(--fx-space-1);
+  padding-block-end: 1px;
+  background: var(--fx-color-surface);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.fx-tablist::-webkit-scrollbar {
+  display: none;
+}
+
+.fx-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fx-space-2);
+  padding: var(--fx-space-3) var(--fx-space-4);
+  font-size: var(--fx-text-sm);
+  font-weight: 550;
+  color: var(--fx-color-text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color var(--fx-duration-fast) var(--fx-ease-out),
+    background-color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-tab::after {
+  content: '';
+  position: absolute;
+  inset-inline: var(--fx-space-3);
+  inset-block-end: 0;
+  height: 2px;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--fx-duration-normal) var(--fx-ease-in-out);
+}
+
+.fx-tab:hover {
+  color: var(--fx-color-text);
+}
+
+.fx-tab:hover::after {
+  transform: scaleX(0.55);
+  opacity: 0.5;
+}
+
+.fx-tab[aria-selected='true'],
+.fx-tab.is-active {
+  color: var(--fx-color-primary);
+}
+
+.fx-tab[aria-selected='true']::after,
+.fx-tab.is-active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.fx-tab:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.fx-tab-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+}
+
+.fx-tab-badge {
+  margin-inline-start: var(--fx-space-1);
+}
+
+/* Panels */
+.fx-tabpanel {
+  padding-block-start: var(--fx-space-5);
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+  animation: fx-panel-in var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-tabpanel[hidden] {
+  display: none;
+}
+
+@keyframes fx-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pills variant */
+.fx-tabs-pills .fx-tablist {
+  gap: var(--fx-space-2);
+  padding-block-end: 0;
+  background: transparent;
+}
+
+.fx-tabs-pills .fx-tab {
+  border-radius: var(--fx-radius-full);
+  padding: var(--fx-space-2) var(--fx-space-4);
+}
+
+.fx-tabs-pills .fx-tab[aria-selected='true'],
+.fx-tabs-pills .fx-tab.is-active {
+  background: color-mix(in srgb, var(--fx-color-primary) 12%, transparent);
+}
+
+.fx-tabs-pills .fx-tab::after {
+  display: none;
+}
+
+/* Line under the whole tablist */
+.fx-tabs-lined .fx-tablist {
+  border-block-end: 1px solid var(--fx-color-border-subtle);
+  padding-block-end: 0;
+}
+
+/* Vertical */
+.fx-tabs-vertical {
+  flex-direction: row;
+}
+
+.fx-tabs-vertical .fx-tablist {
+  flex-direction: column;
+  border-block-end: none;
+  border-inline-end: 1px solid var(--fx-color-border-subtle);
+  overflow-y: auto;
+}
+
+.fx-tabs-vertical .fx-tab {
+  justify-content: flex-start;
+  border-radius: var(--fx-radius-sm);
+}
+
+.fx-tabs-vertical .fx-tab::after {
+  inset-block: var(--fx-space-2);
+  inset-inline-end: 0;
+  inset-inline-start: auto;
+  width: 2px;
+  height: auto;
+  transform: scaleY(0);
+}
+
+.fx-tabs-vertical .fx-tab[aria-selected='true']::after,
+.fx-tabs-vertical .fx-tab.is-active::after {
+  transform: scaleY(1);
+}
+
+.fx-tabs-vertical .fx-tabpanel {
+  padding-block-start: 0;
+  padding-inline-start: var(--fx-space-5);
+  flex: 1 1 auto;
+}

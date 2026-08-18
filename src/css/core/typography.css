@@ -1,0 +1,264 @@
+/* ==========================================================================
+   Fluxa UI · Core · Typography
+   Typography is one of the strongest parts of the framework.
+   Headings use tight tracking and a careful weight ramp for a premium feel.
+   ========================================================================== */
+
+body {
+  font-family: var(--fx-font-sans);
+  font-size: var(--fx-text-base);
+  font-weight: 400;
+  line-height: var(--fx-leading-normal);
+  color: var(--fx-color-text);
+  background-color: var(--fx-color-bg);
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  margin-block-end: var(--fx-space-4);
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+small {
+  font-size: var(--fx-text-sm);
+}
+
+mark {
+  background: color-mix(in srgb, var(--fx-color-primary) 18%, transparent);
+  color: inherit;
+  border-radius: var(--fx-radius-xs);
+  padding: 0 var(--fx-space-1);
+}
+
+a:not([class]) {
+  color: var(--fx-color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--fx-color-primary) 30%, transparent);
+  transition: border-color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+a:not([class]):hover {
+  border-bottom-color: var(--fx-color-primary);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--fx-font-mono);
+  font-size: 0.92em;
+}
+
+/* ------------------------------------------------------------------
+   Headings · fx-heading-1 … fx-heading-6
+   ------------------------------------------------------------------ */
+.fx-heading-1,
+.fx-heading-2,
+.fx-heading-3,
+.fx-heading-4,
+.fx-heading-5,
+.fx-heading-6 {
+  font-weight: 650;
+  color: var(--fx-color-text);
+  line-height: var(--fx-leading-tight);
+  letter-spacing: var(--fx-tracking-tight);
+  text-wrap: balance;
+}
+
+.fx-heading-1 {
+  font-size: clamp(var(--fx-text-4xl), 4vw + 1rem, var(--fx-text-6xl));
+}
+
+.fx-heading-2 {
+  font-size: clamp(var(--fx-text-3xl), 3vw + 1rem, var(--fx-text-5xl));
+}
+
+.fx-heading-3 {
+  font-size: clamp(var(--fx-text-2xl), 2vw + 0.5rem, var(--fx-text-4xl));
+}
+
+.fx-heading-4 {
+  font-size: var(--fx-text-xl);
+}
+
+.fx-heading-5 {
+  font-size: var(--fx-text-lg);
+}
+
+.fx-heading-6 {
+  font-size: var(--fx-text-base);
+  letter-spacing: var(--fx-tracking-wide);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Map plain h1–h6 to the same ramp when inside fx-prose or standalone */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--fx-font-sans);
+  font-weight: 650;
+  color: var(--fx-color-text);
+  line-height: var(--fx-leading-tight);
+  letter-spacing: var(--fx-tracking-tight);
+}
+
+h1 {
+  font-size: var(--fx-text-4xl);
+  margin-block-end: var(--fx-space-4);
+}
+
+h2 {
+  font-size: var(--fx-text-3xl);
+  margin-block: var(--fx-space-6) var(--fx-space-4);
+}
+
+h3 {
+  font-size: var(--fx-text-2xl);
+  margin-block: var(--fx-space-6) var(--fx-space-3);
+}
+
+h4 {
+  font-size: var(--fx-text-xl);
+  margin-block: var(--fx-space-6) var(--fx-space-3);
+}
+
+h5 {
+  font-size: var(--fx-text-lg);
+  margin-block: var(--fx-space-4) var(--fx-space-2);
+}
+
+h6 {
+  font-size: var(--fx-text-base);
+  letter-spacing: var(--fx-tracking-wide);
+  text-transform: uppercase;
+  margin-block: var(--fx-space-4) var(--fx-space-2);
+}
+
+/* ------------------------------------------------------------------
+   Text roles
+   ------------------------------------------------------------------ */
+.fx-display {
+  font-size: clamp(var(--fx-text-5xl), 5vw + 1rem, var(--fx-text-6xl) * 1.25);
+  font-weight: 700;
+  line-height: var(--fx-leading-tight);
+  letter-spacing: var(--fx-tracking-tight);
+  color: var(--fx-color-text);
+  text-wrap: balance;
+}
+
+.fx-text-xs  { font-size: var(--fx-text-xs); }
+.fx-text-sm  { font-size: var(--fx-text-sm); }
+.fx-text-base{ font-size: var(--fx-text-base); }
+.fx-text-lg  { font-size: var(--fx-text-lg); }
+.fx-text-xl  { font-size: var(--fx-text-xl); }
+
+.fx-text-muted   { color: var(--fx-color-text-muted); }
+.fx-text-subtle  { color: var(--fx-color-text-subtle); }
+.fx-text-strong  { color: var(--fx-color-text); font-weight: 600; }
+.fx-text-success { color: var(--fx-color-success); }
+.fx-text-warning { color: var(--fx-color-warning); }
+.fx-text-danger  { color: var(--fx-color-danger); }
+.fx-text-info    { color: var(--fx-color-info); }
+
+.fx-text-center { text-align: center; }
+.fx-text-left   { text-align: left; }
+.fx-text-right  { text-align: right; }
+.fx-text-nowrap { white-space: nowrap; }
+
+.fx-font-mono { font-family: var(--fx-font-mono); }
+.fx-font-bold { font-weight: 650; }
+.fx-font-normal { font-weight: 400; }
+.fx-font-italic { font-style: italic; }
+
+/* ------------------------------------------------------------------
+   Label · caption · code roles
+   ------------------------------------------------------------------ */
+.fx-label {
+  display: inline-block;
+  font-size: var(--fx-text-sm);
+  font-weight: 600;
+  letter-spacing: var(--fx-tracking-wide);
+  color: var(--fx-color-text);
+}
+
+.fx-caption {
+  display: inline-block;
+  font-size: var(--fx-text-xs);
+  letter-spacing: var(--fx-tracking-normal);
+  color: var(--fx-color-text-subtle);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.fx-code {
+  font-family: var(--fx-font-mono);
+  font-size: 0.875em;
+  background: var(--fx-color-surface-sunken);
+  border: 1px solid var(--fx-color-border-subtle);
+  border-radius: var(--fx-radius-xs);
+  padding: 0.1em 0.4em;
+  color: var(--fx-color-primary);
+}
+
+.fx-kbd,
+kbd:not([class]) {
+  font-family: var(--fx-font-mono);
+  font-size: 0.8em;
+  border: 1px solid var(--fx-color-border);
+  border-block-end-width: 2px;
+  border-radius: var(--fx-radius-xs);
+  padding: 1px 5px;
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------
+   Prose · rich text blocks
+   ------------------------------------------------------------------ */
+.fx-prose {
+  font-size: var(--fx-text-lg);
+  line-height: var(--fx-leading-relaxed);
+  color: var(--fx-color-text);
+  max-width: 68ch;
+}
+
+.fx-prose ul,
+.fx-prose ol {
+  padding-inline-start: var(--fx-space-5);
+  margin-block-end: var(--fx-space-4);
+}
+
+.fx-prose ul { list-style: disc; }
+.fx-prose ol { list-style: decimal; }
+
+.fx-prose li {
+  margin-block-end: var(--fx-space-2);
+  padding-inline-start: var(--fx-space-1);
+}
+
+.fx-prose li::marker {
+  color: var(--fx-color-primary);
+}
+
+.fx-prose blockquote {
+  border-inline-start: 3px solid var(--fx-color-primary);
+  padding-inline-start: var(--fx-space-4);
+  color: var(--fx-color-text-muted);
+  font-style: italic;
+  margin-block-end: var(--fx-space-4);
+}
+
+.fx-prose hr {
+  border-color: var(--fx-color-border);
+  margin-block: var(--fx-space-6);
+}

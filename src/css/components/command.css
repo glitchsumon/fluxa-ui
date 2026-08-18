@@ -1,0 +1,181 @@
+/* ==========================================================================
+   Fluxa UI · Components · Command palette
+   CTRL/CMD+K driven search menu — the flagship "Structured Motion" surface.
+   ========================================================================== */
+
+.fx-command {
+  position: fixed;
+  inset: 0;
+  z-index: var(--fx-z-modal);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: max(1rem, 10vh) var(--fx-space-4) var(--fx-space-4);
+}
+
+.fx-command-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(10 11 20 / 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: fx-backdrop-in var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-command-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 34rem;
+  background: var(--fx-color-surface-raised);
+  border: 1px solid var(--fx-color-border);
+  border-radius: var(--fx-radius-xl);
+  box-shadow: var(--fx-shadow-xl);
+  overflow: hidden;
+  animation: fx-command-in var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+@keyframes fx-command-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fx-command-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-3) var(--fx-space-5);
+  border-block-end: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-command-search-icon {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-command-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  font-size: var(--fx-text-base);
+  color: var(--fx-color-text);
+}
+
+.fx-command-input:focus {
+  outline: none;
+}
+
+.fx-command-input::placeholder {
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-command-escape {
+  flex: none;
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-text-subtle);
+  border: 1px solid var(--fx-color-border);
+  border-radius: var(--fx-radius-xs);
+  padding: 1px var(--fx-space-2);
+}
+
+.fx-command-empty {
+  padding: var(--fx-space-8);
+  text-align: center;
+  color: var(--fx-color-text-subtle);
+  font-size: var(--fx-text-sm);
+}
+
+.fx-command-list {
+  padding: var(--fx-space-2);
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.fx-command-group-label {
+  padding: var(--fx-space-2) var(--fx-space-3) var(--fx-space-1);
+  font-size: var(--fx-text-xs);
+  font-weight: 600;
+  letter-spacing: var(--fx-tracking-wider);
+  text-transform: uppercase;
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-command-item {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-3);
+  width: 100%;
+  padding: var(--fx-space-2) var(--fx-space-3);
+  border-radius: var(--fx-radius-sm);
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-command-item:hover,
+.fx-command-item:focus-visible,
+.fx-command-item[data-highlighted] {
+  outline: none;
+  background: color-mix(in srgb, var(--fx-color-primary) 9%, transparent);
+  color: var(--fx-color-primary);
+}
+
+.fx-command-item-icon {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-command-item[data-highlighted] .fx-command-item-icon {
+  color: var(--fx-color-primary);
+}
+
+.fx-command-item-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fx-command-item-shortcut {
+  flex: none;
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-command-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-4);
+  padding: var(--fx-space-2) var(--fx-space-4);
+  border-block-start: 1px solid var(--fx-color-border-subtle);
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-command-kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.fx-command-kbd kbd {
+  font-family: var(--fx-font-mono);
+  font-size: 0.8em;
+  border: 1px solid var(--fx-color-border);
+  border-block-end-width: 2px;
+  border-radius: var(--fx-radius-xs);
+  padding: 1px 4px;
+  background: var(--fx-color-surface);
+}

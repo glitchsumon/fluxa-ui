@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Installation — Fluxa UI</title>
+    <script type="module" src="/assets/docs.js"></script>
+  </head>
+  <body data-root="./">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Installation</h1>
+            <p>
+              Add Fluxa UI to any project — via npm, a CDN or a plain
+              <span class="fx-code">.css</span> / <span class="fx-code">.js</span> pair.
+              No build step is required.
+            </p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Package managers</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">Terminal</span></div>
+              <pre><code># npm
+npm install fluxa-ui
+
+# pnpm
+pnpm add fluxa-ui
+
+# yarn
+yarn add fluxa-ui</code></pre>
+            </div>
+          </div>
+          <p class="fx-text-sm fx-text-muted">
+            The package ships compiled <span class="fx-code">dist/fluxa.js</span> (ES module +
+            UMD) and <span class="fx-code">dist/fluxa.css</span> (minified).
+          </p>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Import in your source</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">CSS</span></div>
+              <pre><code>/* main.css */
+@import "fluxa-ui/dist/fluxa.css";</code></pre>
+            </div>
+          </div>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">JavaScript</span></div>
+              <pre><code>import { Fluxa } from 'fluxa-ui';
+
+// declarative components auto-initialize;
+// programmatic API is available too
+Fluxa.Toast.success('Ready');</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">CDN</h2>
+          <p class="fx-text-sm fx-text-muted fx-mb-4">
+            The fastest path for prototypes and static sites. Use the latest release tag.
+          </p>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;link rel="stylesheet"
+      href="https://unpkg.com/fluxa-ui@1.0.0/dist/fluxa.css"&gt;
+
+&lt;script src="https://unpkg.com/fluxa-ui@1.0.0/dist/fluxa.js" defer&gt;&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+          <div class="fx-alert fx-alert-info fx-mt-4">
+            <svg class="fx-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <div class="fx-alert-content">
+              <div class="fx-alert-body">
+                The UMD build exposes a global <span class="fx-code">Fluxa</span> object
+                (e.g. <span class="fx-code">window.Fluxa.Toast.success('hi')</span>).
+              </div>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Static files</h2>
+          <p class="fx-text-sm fx-text-muted fx-mb-4">
+            Download the two production files and link them locally:
+          </p>
+          <div class="fx-doc-block">
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;link rel="stylesheet" href="css/fluxa.css"&gt;
+&lt;script src="js/fluxa.js" defer&gt;&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">What's in the box</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-table-wrap">
+                <table class="fx-table">
+                  <thead>
+                    <tr><th>File</th><th>Purpose</th><th>Size (gzip)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td class="fx-table-cell-main">fluxa.css</td><td>Complete framework stylesheet</td><td>~14.4 kB</td></tr>
+                    <tr><td class="fx-table-cell-main">fluxa.js</td><td>Interactive components (ES + UMD)</td><td>~11.4 kB</td></tr>
+                    <tr><td class="fx-table-cell-main">fluxa.js.map</td><td>Source maps</td><td>—</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <p class="fx-text-sm fx-text-muted">
+            The core framework works without JavaScript — only interactive components
+            (modal, dropdown, tabs, etc.) need the script.
+          </p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

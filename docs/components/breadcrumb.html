@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Breadcrumb · Pagination — Fluxa UI</title>
+    <script type="module" src="/assets/docs.js"></script>
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Breadcrumb · Pagination</h1>
+            <p>Navigation affordances — semantic, keyboard friendly and free of wrappers.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Breadcrumb</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview">
+              <nav class="fx-breadcrumb" aria-label="Breadcrumb">
+                <span class="fx-breadcrumb-item"><a href="../index.html">Docs</a></span>
+                <span class="fx-breadcrumb-item"><a href="#components">Components</a></span>
+                <span class="fx-breadcrumb-item" aria-current="page">Breadcrumb</span>
+              </nav>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;nav class="fx-breadcrumb" aria-label="Breadcrumb"&gt;
+  &lt;span class="fx-breadcrumb-item"&gt;
+    &lt;a href="/docs"&gt;Docs&lt;/a&gt;
+  &lt;/span&gt;
+  &lt;span class="fx-breadcrumb-item"&gt;
+    &lt;a href="/docs/components"&gt;Components&lt;/a&gt;
+  &lt;/span&gt;
+  &lt;span class="fx-breadcrumb-item" aria-current="page"&gt;Current&lt;/span&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Pagination</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview">
+              <nav class="fx-pagination" aria-label="Pagination">
+                <button class="fx-btn fx-btn-sm" disabled>Previous</button>
+                <button class="fx-pagination-item" aria-current="page" aria-label="Page 1">1</button>
+                <button class="fx-pagination-item" aria-label="Page 2">2</button>
+                <button class="fx-pagination-item" aria-label="Page 3">3</button>
+                <button class="fx-btn fx-btn-sm">Next</button>
+              </nav>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;nav class="fx-pagination" aria-label="Pagination"&gt;
+  &lt;button class="fx-btn fx-btn-sm" disabled&gt;Previous&lt;/button&gt;
+  &lt;button class="fx-pagination-item" aria-current="page"
+          aria-label="Page 1"&gt;1&lt;/button&gt;
+  &lt;button class="fx-pagination-item" aria-label="Page 2"&gt;2&lt;/button&gt;
+  &lt;span class="fx-pagination-ellipsis"&gt;&#8230;&lt;/span&gt;
+  &lt;button class="fx-btn fx-btn-sm"&gt;Next&lt;/button&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Notes</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item"><span class="fx-code">aria-current="page"</span> marks the current position — it carries the emphasis styling.</div>
+                <div class="fx-list-item">Separators are optional SVG <span class="fx-code">.fx-breadcrumb-icon</span> elements if you want a glyph between items.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

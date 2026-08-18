@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Fluxa UI · Components · Switch (toggle)
+   Rail + thumb. The thumb travels with structured, restrained motion.
+   ========================================================================== */
+
+.fx-switch {
+  --fx-switch-bg: var(--fx-color-surface-sunken);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fx-space-2);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.fx-switch input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.fx-switch .fx-switch-rail {
+  flex: none;
+  width: 2.5rem;
+  height: 1.375rem;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-switch-bg);
+  border: 1px solid var(--fx-color-border);
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    border-color var(--fx-duration-fast) var(--fx-ease-out),
+    box-shadow var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-switch .fx-switch-thumb {
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-surface-raised);
+  box-shadow: var(--fx-shadow-sm);
+  transform: translateX(0);
+  transition: transform var(--fx-duration-normal) var(--fx-ease-in-out);
+}
+
+.fx-switch:hover .fx-switch-rail {
+  border-color: var(--fx-color-border-strong);
+}
+
+.fx-switch input:focus-visible + .fx-switch-rail {
+  box-shadow: var(--fx-focus-ring);
+}
+
+.fx-switch input:checked + .fx-switch-rail {
+  background: var(--fx-color-primary);
+  border-color: var(--fx-color-primary);
+}
+
+.fx-switch input:checked + .fx-switch-rail .fx-switch-thumb {
+  transform: translateX(calc(2.5rem - 1rem - 4px));
+  background: #fff;
+  box-shadow: var(--fx-shadow-xs);
+}
+
+/* RTL handled via logical property */
+.fx-switch input:disabled ~ * {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fx-switch-label {
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text);
+}
+
+.fx-switch-lg .fx-switch-rail {
+  width: 3rem;
+  height: 1.625rem;
+}
+
+.fx-switch-lg .fx-switch-thumb {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.fx-switch-lg input:checked + .fx-switch-rail .fx-switch-thumb {
+  transform: translateX(calc(3rem - 1.2rem - 4px));
+}

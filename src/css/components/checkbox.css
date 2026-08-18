@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Fluxa UI · Components · Checkbox
+   Custom-styled checkbox: crisp square, check drawing in with edge motion.
+   ========================================================================== */
+
+.fx-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fx-space-2);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.fx-checkbox input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  inset-inline-start: 0;
+}
+
+.fx-checkbox .fx-checkbox-box {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: var(--fx-radius-xs);
+  border: 1.5px solid var(--fx-color-border-strong);
+  background: var(--fx-color-surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    border-color var(--fx-duration-fast) var(--fx-ease-out),
+    box-shadow var(--fx-duration-fast) var(--fx-ease-out),
+    transform var(--fx-duration-fast) var(--fx-ease-in-out);
+}
+
+.fx-checkbox .fx-checkbox-box .fx-check {
+  width: 0.75rem;
+  height: 0.75rem;
+  stroke-width: 2.5;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  transition: stroke-dashoffset var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+/* Hover — the box lifts slightly and the border brightens (Edge Motion) */
+.fx-checkbox:hover .fx-checkbox-box {
+  border-color: var(--fx-color-primary);
+  transform: translateY(-1px);
+}
+
+/* Focus — visible ring */
+.fx-checkbox input:focus-visible + .fx-checkbox-box {
+  outline: none;
+  box-shadow: var(--fx-focus-ring);
+}
+
+/* Checked */
+.fx-checkbox input:checked + .fx-checkbox-box {
+  background-color: var(--fx-color-primary);
+  border-color: var(--fx-color-primary);
+  color: var(--fx-color-primary-contrast);
+}
+
+.fx-checkbox input:checked + .fx-checkbox-box .fx-check {
+  stroke-dashoffset: 0;
+}
+
+/* Indeterminate */
+.fx-checkbox input:indeterminate + .fx-checkbox-box {
+  background-color: var(--fx-color-primary);
+  border-color: var(--fx-color-primary);
+}
+
+.fx-checkbox input:indeterminate + .fx-checkbox-box::after {
+  content: '';
+  width: 0.5rem;
+  height: 2px;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-primary-contrast);
+}
+
+/* Required asterisk handled by form-label */
+
+/* Disabled */
+.fx-checkbox input:disabled ~ * {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fx-checkbox input:disabled ~ .fx-checkbox-box {
+  background-color: var(--fx-color-surface-sunken);
+}
+
+.fx-checkbox-label {
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text);
+}

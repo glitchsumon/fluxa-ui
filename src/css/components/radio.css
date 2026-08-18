@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Fluxa UI · Components · Radio
+   Custom radio: circle with a dot that scales in on selection.
+   ========================================================================== */
+
+.fx-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fx-space-2);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.fx-radio input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.fx-radio .fx-radio-dot {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: var(--fx-radius-full);
+  border: 1.5px solid var(--fx-color-border-strong);
+  background: var(--fx-color-surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color var(--fx-duration-fast) var(--fx-ease-out),
+    box-shadow var(--fx-duration-fast) var(--fx-ease-out),
+    transform var(--fx-duration-fast) var(--fx-ease-in-out);
+}
+
+.fx-radio .fx-radio-dot::after {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-primary-contrast);
+  transform: scale(0);
+  transition: transform var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-radio:hover .fx-radio-dot {
+  border-color: var(--fx-color-primary);
+  transform: translateY(-1px);
+}
+
+.fx-radio input:focus-visible + .fx-radio-dot {
+  box-shadow: var(--fx-focus-ring);
+}
+
+.fx-radio input:checked + .fx-radio-dot {
+  border-color: var(--fx-color-primary);
+  background-color: var(--fx-color-primary);
+  border-width: 2px;
+}
+
+.fx-radio input:checked + .fx-radio-dot::after {
+  transform: scale(1);
+}
+
+.fx-radio input:disabled ~ * {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Segment style */
+.fx-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fx-space-3);
+}
+
+.fx-radio-group-inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--fx-space-4);
+}

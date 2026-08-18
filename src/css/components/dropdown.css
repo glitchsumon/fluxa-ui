@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Fluxa UI · Components · Menu (dropdown / context)
+   The shared menu surface used by dropdowns, comboboxes and context menus.
+   ========================================================================== */
+
+.fx-menu {
+  min-width: 12rem;
+  max-width: 20rem;
+  padding: var(--fx-space-1);
+  background: var(--fx-color-surface-raised);
+  border: 1px solid var(--fx-color-border);
+  border-radius: var(--fx-radius-md);
+  box-shadow: var(--fx-shadow-lg);
+  z-index: var(--fx-z-dropdown);
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.fx-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-3);
+  width: 100%;
+  padding: var(--fx-space-2) var(--fx-space-3);
+  border-radius: var(--fx-radius-sm);
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text);
+  text-align: start;
+  cursor: pointer;
+  position: relative;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-menu-item:hover,
+.fx-menu-item:focus-visible,
+.fx-menu-item[data-highlighted] {
+  outline: none;
+  background: color-mix(in srgb, var(--fx-color-primary) 9%, transparent);
+  color: var(--fx-color-primary);
+}
+
+.fx-menu-item[aria-disabled='true'] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.fx-menu-item-icon {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-menu-item:hover .fx-menu-item-icon,
+.fx-menu-item[data-highlighted] .fx-menu-item-icon {
+  color: var(--fx-color-primary);
+}
+
+.fx-menu-item-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fx-menu-item-shortcut {
+  flex: none;
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-menu-item-active {
+  color: var(--fx-color-primary);
+  font-weight: 600;
+}
+
+.fx-menu-item-active::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: var(--fx-space-1);
+  width: 2px;
+  inset-block: 0.5rem;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-primary);
+}
+
+.fx-menu-divider {
+  height: 1px;
+  background: var(--fx-color-border-subtle);
+  margin: var(--fx-space-1) var(--fx-space-1);
+}
+
+.fx-menu-label {
+  padding: var(--fx-space-1) var(--fx-space-3);
+  font-size: var(--fx-text-xs);
+  font-weight: 600;
+  letter-spacing: var(--fx-tracking-wide);
+  text-transform: uppercase;
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-menu-empty {
+  padding: var(--fx-space-4);
+  text-align: center;
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-subtle);
+}
+
+/* ------------------------------------------------------------------
+   Dropdown container + trigger
+   ------------------------------------------------------------------ */
+.fx-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.fx-dropdown-menu {
+  position: absolute;
+  z-index: var(--fx-z-dropdown);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px) scale(0.985);
+  transform-origin: top;
+  transition:
+    opacity var(--fx-duration-fast) var(--fx-ease-out),
+    transform var(--fx-duration-normal) var(--fx-ease-in-out),
+    visibility 0s linear var(--fx-duration-normal);
+}
+
+.fx-dropdown[data-fx-open='true'] > .fx-dropdown-menu,
+.fx-dropdown.open > .fx-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
+}
+
+/* Chevron rotates with menu state */
+.fx-dropdown > .fx-btn .fx-chevron,
+.fx-dropdown-trigger .fx-chevron {
+  transition: transform var(--fx-duration-normal) var(--fx-ease-in-out);
+}
+
+.fx-dropdown[data-fx-open='true'] > .fx-btn .fx-chevron,
+.fx-dropdown.open .fx-dropdown-trigger .fx-chevron {
+  transform: rotate(180deg);
+}
+
+/* Popover positioning helper */
+[data-fx-placement='right-start'] { transform-origin: left top; }
+[data-fx-placement='left-start'] { transform-origin: right top; }
+[data-fx-placement='top'] { transform-origin: bottom center; }
+[data-fx-placement='bottom'] { transform-origin: top center; }

@@ -1,0 +1,103 @@
+/* ==========================================================================
+   Fluxa UI · Components · Table
+   Structured data tables with hover edge-animation on rows.
+   ========================================================================== */
+
+.fx-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--fx-color-surface);
+  border: 1px solid var(--fx-color-border-subtle);
+  border-radius: var(--fx-radius-lg);
+  box-shadow: var(--fx-shadow-xs);
+}
+
+.fx-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text);
+}
+
+.fx-table thead th {
+  text-align: start;
+  font-size: var(--fx-text-xs);
+  font-weight: 600;
+  letter-spacing: var(--fx-tracking-wide);
+  text-transform: uppercase;
+  color: var(--fx-color-text-subtle);
+  background: var(--fx-color-surface-sunken);
+  padding: var(--fx-space-3) var(--fx-space-4);
+  white-space: nowrap;
+}
+
+.fx-table tbody td {
+  padding: var(--fx-space-3) var(--fx-space-4);
+  border-top: 1px solid var(--fx-color-border-subtle);
+  vertical-align: middle;
+}
+
+/* Row hover — hairline left edge draws in (Edge Motion) */
+.fx-table tbody tr {
+  position: relative;
+  transition: background-color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-table tbody tr::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block: 0;
+  width: 2px;
+  background: var(--fx-color-primary);
+  transform: scaleY(0);
+  transform-origin: center;
+  opacity: 0;
+  transition:
+    transform var(--fx-duration-normal) var(--fx-ease-in-out),
+    opacity var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-table tbody tr:hover {
+  background: color-mix(in srgb, var(--fx-color-primary) 4%, transparent);
+}
+
+.fx-table tbody tr:hover::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.fx-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Stripe */
+.fx-table-striped tbody tr:nth-child(even) {
+  background: var(--fx-color-surface-sunken);
+}
+
+/* Compact */
+.fx-table-compact thead th,
+.fx-table-compact tbody td {
+  padding: var(--fx-space-2) var(--fx-space-3);
+}
+
+/* Row state */
+.fx-table tbody tr.fx-table-row-selected {
+  background: color-mix(in srgb, var(--fx-color-primary) 8%, transparent);
+}
+
+.fx-table tbody tr.fx-table-row-selected::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.fx-table .fx-table-cell-main {
+  font-weight: 600;
+  color: var(--fx-color-text);
+}
+
+.fx-table .fx-table-cell-muted {
+  color: var(--fx-color-text-muted);
+}

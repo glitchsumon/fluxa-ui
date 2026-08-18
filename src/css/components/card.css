@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Fluxa UI · Components · Card
+   Layered surfaces with a hover "edge lift" — a subtle border brightening
+   and a fine top-edge accent that extends (Edge Motion).
+   ========================================================================== */
+
+.fx-card {
+  --fx-card-bg: var(--fx-color-surface);
+  --fx-card-border: var(--fx-color-border);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--fx-card-bg);
+  border: 1px solid var(--fx-card-border);
+  border-radius: var(--fx-radius-lg);
+  box-shadow: var(--fx-shadow-xs);
+  overflow: hidden;
+  transition:
+    border-color var(--fx-duration-normal) var(--fx-ease-out),
+    box-shadow var(--fx-duration-normal) var(--fx-ease-out),
+    transform var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+/* Edge Motion — a hairline accent that slides out from the center of the top edge */
+.fx-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  inset-inline: 25%;
+  height: 2px;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-primary);
+  opacity: 0;
+  transform: scaleX(0);
+  transition:
+    transform var(--fx-duration-slow) var(--fx-ease-in-out),
+    opacity var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-card:hover,
+.fx-card[data-fx-open] {
+  border-color: var(--fx-color-border-strong);
+  box-shadow: var(--fx-shadow-md);
+}
+
+.fx-card:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Interactive card */
+.fx-card-interactive {
+  cursor: pointer;
+}
+
+.fx-card-interactive:hover {
+  transform: translateY(-2px);
+}
+
+.fx-card-interactive:active {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------------
+   Parts
+   ------------------------------------------------------------------ */
+.fx-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--fx-space-4);
+  padding: var(--fx-space-5) var(--fx-space-6);
+  border-bottom: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-card-body {
+  padding: var(--fx-space-6);
+  flex: 1 1 auto;
+}
+
+.fx-card-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-4) var(--fx-space-6);
+  border-top: 1px solid var(--fx-color-border-subtle);
+  background: var(--fx-color-surface-sunken);
+}
+
+.fx-card-title {
+  font-size: var(--fx-text-lg);
+  font-weight: 650;
+  color: var(--fx-color-text);
+  letter-spacing: var(--fx-tracking-tight);
+}
+
+.fx-card-subtitle {
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+  margin-top: var(--fx-space-1);
+}
+
+.fx-card-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fx-space-1);
+}
+
+/* ------------------------------------------------------------------
+   Variants
+   ------------------------------------------------------------------ */
+.fx-card-compact .fx-card-body {
+  padding: var(--fx-space-4);
+}
+
+.fx-card-compact .fx-card-header {
+  padding: var(--fx-space-3) var(--fx-space-4);
+}
+
+.fx-card-raised {
+  background: var(--fx-color-surface-raised);
+  box-shadow: var(--fx-shadow-md);
+}
+
+.fx-card-outlined {
+  box-shadow: none;
+}
+
+.fx-card-flat {
+  border-color: transparent;
+  background: var(--fx-color-surface-sunken);
+  box-shadow: none;
+}
+
+.fx-card-outlined:hover,
+.fx-card-flat:hover {
+  box-shadow: var(--fx-shadow-sm);
+}
+
+/* Left accent line variant */
+.fx-card-accents {
+  border-inline-start: 3px solid var(--fx-color-primary);
+}
+
+.fx-card-accents-success { border-inline-start-color: var(--fx-color-success); }
+.fx-card-accents-warning { border-inline-start-color: var(--fx-color-warning); }
+.fx-card-accents-danger { border-inline-start-color: var(--fx-color-danger); }
+.fx-card-accents-info { border-inline-start-color: var(--fx-color-info); }

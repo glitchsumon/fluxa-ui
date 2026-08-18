@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Fluxa UI · Components · Toast
+   Small floating notices. Stack bottom-right; enter with a structured slide.
+   ========================================================================== */
+
+.fx-toast-region {
+  position: fixed;
+  z-index: var(--fx-z-toast);
+  inset-inline-end: var(--fx-space-4);
+  inset-block-end: var(--fx-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--fx-space-3);
+  pointer-events: none;
+  max-width: min(24rem, calc(100vw - 2rem));
+}
+
+.fx-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-3) var(--fx-space-4);
+  background: var(--fx-color-surface-raised);
+  border: 1px solid var(--fx-color-border);
+  border-radius: var(--fx-radius-md);
+  box-shadow: var(--fx-shadow-lg);
+  color: var(--fx-color-text);
+  transform-origin: bottom;
+  animation: fx-toast-in var(--fx-duration-slow) var(--fx-ease-out);
+}
+
+.fx-toast-leave {
+  animation: fx-toast-out var(--fx-duration-normal) var(--fx-ease-in) forwards;
+}
+
+@keyframes fx-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fx-toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+.fx-toast-icon {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-block-start: 1px;
+}
+
+.fx-toast-success { border-inline-start: 3px solid var(--fx-color-success); }
+.fx-toast-success .fx-toast-icon { color: var(--fx-color-success); }
+.fx-toast-danger { border-inline-start: 3px solid var(--fx-color-danger); }
+.fx-toast-danger .fx-toast-icon { color: var(--fx-color-danger); }
+.fx-toast-warning { border-inline-start: 3px solid var(--fx-color-warning); }
+.fx-toast-warning .fx-toast-icon { color: var(--fx-color-warning); }
+.fx-toast-info { border-inline-start: 3px solid var(--fx-color-info); }
+.fx-toast-info .fx-toast-icon { color: var(--fx-color-info); }
+
+.fx-toast-title {
+  font-size: var(--fx-text-sm);
+  font-weight: 650;
+}
+
+.fx-toast-body {
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+}
+
+.fx-toast-close {
+  flex: none;
+  margin-inline-start: auto;
+  margin-inline-end: -0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-sm);
+  color: var(--fx-color-text-subtle);
+  cursor: pointer;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-toast-close:hover {
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text);
+}

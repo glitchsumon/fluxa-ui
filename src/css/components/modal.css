@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Fluxa UI · Components · Modal
+   Focus-trapped overlay dialog. Structured entrance: backdrop fades,
+   panel scales 0.98 → 1 and slides up 8px.
+   ========================================================================== */
+
+.fx-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--fx-z-modal);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--fx-space-4);
+  overflow-y: auto;
+}
+
+/* Hidden by default — JS flips data-fx-open to "true" */
+.fx-modal:not([data-fx-open='true']) {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.fx-modal[data-fx-open='true'] {
+  visibility: visible;
+}
+
+.fx-modal:not([data-fx-open='true']) .fx-modal-panel,
+.fx-modal:not([data-fx-open='true']) .fx-modal-backdrop {
+  opacity: 0;
+  animation: none;
+}
+
+.fx-modal:not([data-fx-open='true']) .fx-modal-panel {
+  transform: translateY(10px) scale(0.98);
+}
+
+.fx-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(10 11 20 / 0.45);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  animation: fx-backdrop-in var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+@keyframes fx-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fx-modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  margin-block: auto;
+  background: var(--fx-color-surface-raised);
+  border: 1px solid var(--fx-color-border);
+  border-radius: var(--fx-radius-xl);
+  box-shadow: var(--fx-shadow-xl);
+  overflow: hidden;
+  animation: fx-modal-in var(--fx-duration-slow) var(--fx-ease-out);
+}
+
+@keyframes fx-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fx-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--fx-space-4);
+  padding: var(--fx-space-5) var(--fx-space-6);
+  border-bottom: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-modal-title {
+  font-size: var(--fx-text-lg);
+  font-weight: 650;
+  color: var(--fx-color-text);
+  letter-spacing: var(--fx-tracking-tight);
+}
+
+.fx-modal-description {
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+  margin-block-start: var(--fx-space-1);
+}
+
+.fx-modal-close {
+  flex: none;
+  width: 1.875rem;
+  height: 1.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-sm);
+  color: var(--fx-color-text-subtle);
+  cursor: pointer;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-modal-close:hover {
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text);
+}
+
+.fx-modal-body {
+  padding: var(--fx-space-6);
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+  line-height: var(--fx-leading-normal);
+}
+
+.fx-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-4) var(--fx-space-6);
+  border-top: 1px solid var(--fx-color-border-subtle);
+  background: var(--fx-color-surface-sunken);
+}
+
+/* Sizes */
+.fx-modal-sm .fx-modal-panel { max-width: 22rem; }
+.fx-modal-lg .fx-modal-panel { max-width: 42rem; }
+.fx-modal-xl .fx-modal-panel { max-width: 56rem; }

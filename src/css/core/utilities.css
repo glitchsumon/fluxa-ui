@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Fluxa UI · Core · Utilities
+   A deliberately small, easy-to-understand utility set built on tokens.
+   ========================================================================== */
+
+/* Text alignment utilities are in typography.css */
+
+/* ------------------------------------------------------------------
+   Surface/color helpers
+   ------------------------------------------------------------------ */
+.fx-bg-surface { background-color: var(--fx-color-surface); }
+.fx-bg-surface-raised { background-color: var(--fx-color-surface-raised); }
+.fx-bg-sunken { background-color: var(--fx-color-surface-sunken); }
+.fx-bg-primary-soft {
+  background-color: color-mix(in srgb, var(--fx-color-primary) 12%, transparent);
+}
+.fx-bg-primary {
+  background-color: var(--fx-color-primary);
+  color: var(--fx-color-primary-contrast);
+}
+.fx-bg-success { background-color: var(--fx-color-success); }
+.fx-bg-warning { background-color: var(--fx-color-warning); }
+.fx-bg-danger { background-color: var(--fx-color-danger); }
+.fx-bg-info { background-color: var(--fx-color-info); }
+
+.fx-text-primary { color: var(--fx-color-primary); }

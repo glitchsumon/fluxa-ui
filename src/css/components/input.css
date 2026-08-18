@@ -1,0 +1,251 @@
+/* ==========================================================================
+   Fluxa UI · Components · Form fields · Input
+   Inputs, textarea, search, file input, input groups and validation states.
+   ========================================================================== */
+
+.fx-input,
+.fx-textarea,
+.fx-select {
+  width: 100%;
+  display: block;
+  font-size: var(--fx-text-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--fx-color-text);
+  background-color: var(--fx-color-surface);
+  border: 1px solid var(--fx-color-border);
+  border-radius: var(--fx-radius-md);
+  padding: var(--fx-space-2) var(--fx-space-3);
+  transition:
+    border-color var(--fx-duration-fast) var(--fx-ease-out),
+    box-shadow var(--fx-duration-fast) var(--fx-ease-out),
+    background-color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-input::placeholder,
+.fx-textarea::placeholder {
+  color: var(--fx-color-text-subtle);
+  opacity: 1;
+}
+
+.fx-input:hover:not(:disabled):not(:focus),
+.fx-textarea:hover:not(:disabled):not(:focus),
+.fx-select:hover:not(:disabled):not(:focus) {
+  border-color: var(--fx-color-border-strong);
+}
+
+.fx-input:focus,
+.fx-textarea:focus,
+.fx-select:focus {
+  outline: none;
+  border-color: var(--fx-color-primary);
+  box-shadow: var(--fx-focus-ring);
+}
+
+.fx-input:disabled,
+.fx-textarea:disabled,
+.fx-select:disabled {
+  background-color: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text-subtle);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.fx-input[readonly],
+.fx-textarea[readonly] {
+  background-color: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text-muted);
+}
+
+/* Validation states */
+.fx-input-error,
+.fx-textarea-error,
+.fx-select-error {
+  border-color: var(--fx-color-danger);
+}
+
+.fx-input-error:focus,
+.fx-textarea-error:focus,
+.fx-select-error:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--fx-color-danger) 22%, transparent);
+}
+
+.fx-input-success,
+.fx-textarea-success,
+.fx-select-success {
+  border-color: var(--fx-color-success);
+}
+
+/* Sizes */
+.fx-input-sm,
+.fx-textarea-sm,
+.fx-select-sm {
+  padding: var(--fx-space-1) var(--fx-space-2);
+  font-size: var(--fx-text-xs);
+  border-radius: var(--fx-radius-sm);
+}
+
+.fx-input-lg,
+.fx-textarea-lg,
+.fx-select-lg {
+  padding: var(--fx-space-3) var(--fx-space-4);
+  font-size: var(--fx-text-base);
+  border-radius: var(--fx-radius-lg);
+}
+
+/* ------------------------------------------------------------------
+   Textarea
+   ------------------------------------------------------------------ */
+.fx-textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.fx-textarea-auto {
+  resize: none;
+}
+
+/* ------------------------------------------------------------------
+   Search input
+   ------------------------------------------------------------------ */
+.fx-search {
+  position: relative;
+}
+
+.fx-search .fx-search-icon {
+  position: absolute;
+  inset-inline-start: var(--fx-space-3);
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  color: var(--fx-color-text-subtle);
+  pointer-events: none;
+}
+
+.fx-search .fx-input {
+  padding-inline-start: 2.4rem;
+}
+
+.fx-search .fx-search-shortcut {
+  position: absolute;
+  inset-inline-end: var(--fx-space-2);
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+/* ------------------------------------------------------------------
+   Input group · attached affixes
+   ------------------------------------------------------------------ */
+.fx-input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.fx-input-group > .fx-input,
+.fx-input-group > .fx-select,
+.fx-input-group > .fx-textarea {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fx-input-group > :not(:first-child) {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.fx-input-group > :not(:last-child) {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+  margin-inline-end: -1px;
+}
+
+.fx-input-affix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--fx-space-1);
+  padding-inline: var(--fx-space-3);
+  background: var(--fx-color-surface-sunken);
+  border: 1px solid var(--fx-color-border);
+  border-radius: var(--fx-radius-md);
+  color: var(--fx-color-text-muted);
+  font-size: var(--fx-text-sm);
+  white-space: nowrap;
+}
+
+.fx-input-affix .fx-affix-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ------------------------------------------------------------------
+   File input
+   ------------------------------------------------------------------ */
+.fx-input[type='file'] {
+  padding: var(--fx-space-1);
+  cursor: pointer;
+}
+
+.fx-input[type='file']::file-selector-button {
+  margin-inline-end: var(--fx-space-3);
+  padding: var(--fx-space-1) var(--fx-space-3);
+  border: 1px solid var(--fx-color-border);
+  border-radius: var(--fx-radius-sm);
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text);
+  font: inherit;
+  font-size: var(--fx-text-xs);
+  cursor: pointer;
+  transition: background-color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-input[type='file']::file-selector-button:hover {
+  background: var(--fx-color-border-subtle);
+}
+
+/* ------------------------------------------------------------------
+   Form field wrapper
+   ------------------------------------------------------------------ */
+.fx-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fx-space-2);
+  margin-block-end: 0;
+}
+
+.fx-form-label {
+  font-size: var(--fx-text-sm);
+  font-weight: 600;
+  color: var(--fx-color-text);
+}
+
+.fx-form-label .fx-form-required {
+  color: var(--fx-color-danger);
+  margin-inline-start: 2px;
+}
+
+.fx-form-hint {
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-form-error {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-1);
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-danger);
+}
+
+.fx-form-message {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-1);
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-text-muted);
+}
+
+.fx-form-message-success { color: var(--fx-color-success); }
+.fx-form-message-error { color: var(--fx-color-danger); }

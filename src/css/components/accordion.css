@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Fluxa UI · Components · Accordion
+   Collapsible sections with a rotating chevron and edge underline.
+   ========================================================================== */
+
+.fx-accordion {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--fx-color-border-subtle);
+  border-radius: var(--fx-radius-lg);
+  background: var(--fx-color-surface);
+  overflow: hidden;
+}
+
+.fx-accordion-item + .fx-accordion-item {
+  border-top: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-accordion-header {
+  margin: 0;
+}
+
+.fx-accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--fx-space-4);
+  width: 100%;
+  padding: var(--fx-space-4) var(--fx-space-5);
+  font-size: var(--fx-text-sm);
+  font-weight: 600;
+  color: var(--fx-color-text);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-accordion-trigger:hover {
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-primary);
+}
+
+.fx-accordion-icon {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  color: var(--fx-color-text-subtle);
+  transition:
+    transform var(--fx-duration-normal) var(--fx-ease-in-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-accordion-item[aria-expanded='true'] > .fx-accordion-header .fx-accordion-icon,
+.fx-accordion-item[data-fx-open] > .fx-accordion-header .fx-accordion-icon {
+  transform: rotate(180deg);
+  color: var(--fx-color-primary);
+}
+
+.fx-accordion-content {
+  overflow: hidden;
+  transition:
+    height var(--fx-duration-slow) var(--fx-ease-in-out),
+    opacity var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-accordion-content-inner {
+  padding: 0 var(--fx-space-5) var(--fx-space-5);
+  padding-block-start: 0;
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+  line-height: var(--fx-leading-normal);
+}
+
+/* Compact */
+.fx-accordion-compact .fx-accordion-trigger {
+  padding: var(--fx-space-3) var(--fx-space-4);
+  font-size: var(--fx-text-sm);
+}
+
+.fx-accordion-compact .fx-accordion-content-inner {
+  padding: 0 var(--fx-space-4) var(--fx-space-4);
+}
+
+/* Bordered items */
+.fx-accordion-bordered .fx-accordion-item {
+  border: 1px solid var(--fx-color-border-subtle);
+  border-radius: var(--fx-radius-md);
+  margin-block-end: var(--fx-space-2);
+}
+
+.fx-accordion-bordered .fx-accordion-item + .fx-accordion-item {
+  border-top: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-accordion-bordered {
+  background: transparent;
+  border: none;
+}

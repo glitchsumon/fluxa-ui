@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Fluxa UI · Components · Combobox / Autocomplete
+   Text input with an attached dropdown option list.
+   ========================================================================== */
+
+.fx-combobox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--fx-space-1);
+}
+
+.fx-combobox-input-wrap {
+  position: relative;
+}
+
+.fx-combobox .fx-input {
+  padding-inline-end: 2.6rem;
+}
+
+.fx-combobox-chevron {
+  position: absolute;
+  inset-inline-end: var(--fx-space-1);
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fx-color-text-subtle);
+  border-radius: var(--fx-radius-sm);
+  cursor: pointer;
+  transition:
+    transform var(--fx-duration-normal) var(--fx-ease-in-out),
+    background-color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-combobox-chevron:hover {
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text);
+}
+
+.fx-combobox[data-fx-open='true'] .fx-combobox-chevron {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* The option list shares .fx-menu styling */
+.fx-combobox .fx-menu {
+  width: 100%;
+  position: absolute;
+  inset: 100% 0 auto;
+  margin-block-start: var(--fx-space-1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px) scale(0.99);
+  transform-origin: top;
+  transition:
+    opacity var(--fx-duration-fast) var(--fx-ease-out),
+    transform var(--fx-duration-normal) var(--fx-ease-in-out),
+    visibility 0s linear var(--fx-duration-normal);
+}
+
+.fx-combobox[data-fx-open='true'] .fx-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
+}
+
+/* Multiple-selection tags inside input group */
+.fx-combobox-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--fx-space-1);
+  padding: var(--fx-space-1);
+  padding-inline-end: 2.6rem;
+  cursor: text;
+}
+
+.fx-combobox-tags .fx-input {
+  border: none;
+  padding: var(--fx-space-1);
+  flex: 1 1 6rem;
+  min-width: 4rem;
+  width: auto;
+}
+
+.fx-combobox-tags .fx-input:focus {
+  box-shadow: none;
+}

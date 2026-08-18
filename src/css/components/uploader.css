@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Fluxa UI · Components · Uploader (dropzone)
+   Drag-and-drop file area with Edge Motion border. Perfect for forms.
+   ========================================================================== */
+
+.fx-uploader {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--fx-space-2);
+  padding: var(--fx-space-10) var(--fx-space-6);
+  border: 1.5px dashed var(--fx-color-border-strong);
+  border-radius: var(--fx-radius-lg);
+  background: var(--fx-color-surface);
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color var(--fx-duration-normal) var(--fx-ease-out),
+    background-color var(--fx-duration-normal) var(--fx-ease-out),
+    transform var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-uploader:hover {
+  border-color: var(--fx-color-primary);
+  background: color-mix(in srgb, var(--fx-color-primary) 4%, transparent);
+}
+
+.fx-uploader[data-dragging='true'] {
+  border-color: var(--fx-color-primary);
+  border-style: solid;
+  background: color-mix(in srgb, var(--fx-color-primary) 10%, transparent);
+  transform: translateY(-2px);
+}
+
+.fx-uploader-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-lg);
+  background: color-mix(in srgb, var(--fx-color-primary) 10%, transparent);
+  color: var(--fx-color-primary);
+}
+
+.fx-uploader-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.fx-uploader-title {
+  font-size: var(--fx-text-sm);
+  font-weight: 600;
+  color: var(--fx-color-text);
+}
+
+.fx-uploader-hint {
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-uploader-multiple .fx-uploader {
+  text-align: left;
+}
+
+.fx-uploader-filelist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fx-space-2);
+  margin-block-start: var(--fx-space-4);
+}
+
+.fx-uploader-file {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-2) var(--fx-space-3);
+  background: var(--fx-color-surface-sunken);
+  border: 1px solid var(--fx-color-border-subtle);
+  border-radius: var(--fx-radius-sm);
+  font-size: var(--fx-text-sm);
+}
+
+.fx-uploader-file-icon {
+  flex: none;
+  color: var(--fx-color-text-muted);
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.fx-uploader-file-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--fx-color-text);
+  font-weight: 500;
+}
+
+.fx-uploader-file-size {
+  flex: none;
+  color: var(--fx-color-text-subtle);
+  font-size: var(--fx-text-xs);
+}
+
+.fx-uploader-file-remove {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-sm);
+  color: var(--fx-color-text-subtle);
+  cursor: pointer;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-uploader-file-remove:hover {
+  background: color-mix(in srgb, var(--fx-color-danger) 12%, transparent);
+  color: var(--fx-color-danger);
+}

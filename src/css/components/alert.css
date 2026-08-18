@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Fluxa UI · Components · Alert
+   Structured feedback banners with a hard left accent edge.
+   ========================================================================== */
+
+.fx-alert {
+  --fx-alert-color: var(--fx-color-info);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-4);
+  border-radius: var(--fx-radius-md);
+  background: color-mix(in srgb, var(--fx-alert-color) 8%, var(--fx-color-surface));
+  border: 1px solid
+    color-mix(in srgb, var(--fx-alert-color) 22%, var(--fx-color-border));
+  border-inline-start: 3px solid var(--fx-alert-color);
+  color: var(--fx-color-text);
+  transition:
+    border-color var(--fx-duration-fast) var(--fx-ease-out),
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    opacity var(--fx-duration-normal) var(--fx-ease-out),
+    transform var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-alert[data-fx-leaving] {
+  opacity: 0;
+  transform: translateY(2px);
+  pointer-events: none;
+}
+
+.fx-alert-success { --fx-alert-color: var(--fx-color-success); }
+.fx-alert-danger { --fx-alert-color: var(--fx-color-danger); }
+.fx-alert-warning { --fx-alert-color: var(--fx-color-warning); }
+.fx-alert-info { --fx-alert-color: var(--fx-color-info); }
+.fx-alert-primary { --fx-alert-color: var(--fx-color-primary); }
+
+.fx-alert-icon {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-block-start: 1px;
+  color: var(--fx-alert-color);
+}
+
+.fx-alert-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fx-alert-title {
+  font-size: var(--fx-text-sm);
+  font-weight: 650;
+  color: var(--fx-color-text);
+}
+
+.fx-alert-body {
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+  margin-block-start: 2px;
+}
+
+.fx-alert-actions {
+  display: flex;
+  gap: var(--fx-space-2);
+  margin-block-start: var(--fx-space-3);
+}
+
+.fx-alert-dismiss {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-sm);
+  color: var(--fx-color-text-subtle);
+  cursor: pointer;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-alert-dismiss:hover {
+  background: color-mix(in srgb, var(--fx-color-text) 8%, transparent);
+  color: var(--fx-color-text);
+}
+
+/* Informational title-only */
+.fx-alert-title-only .fx-alert-body {
+  display: none;
+}

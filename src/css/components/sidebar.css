@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Fluxa UI · Components · Sidebar
+   Vertical app navigation. Rail collapses to overlay on mobile.
+   ========================================================================== */
+
+.fx-sidebar-context {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* The sidebar itself (sticky panel) */
+.fx-sidebar {
+  --fx-sidebar-width: 16rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  width: var(--fx-sidebar-width);
+  height: 100vh;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  background: var(--fx-color-surface-raised);
+  border-inline-end: 1px solid var(--fx-color-border);
+  z-index: var(--fx-z-fixed);
+  overflow: hidden;
+  transition: transform var(--fx-duration-slow) var(--fx-ease-in-out);
+}
+
+.fx-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-4);
+  border-block-end: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-sidebar-nav {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--fx-space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--fx-space-1);
+}
+
+.fx-sidebar-group-label {
+  padding: var(--fx-space-2) var(--fx-space-2) var(--fx-space-1);
+  font-size: var(--fx-text-xs);
+  font-weight: 600;
+  letter-spacing: var(--fx-tracking-wider);
+  text-transform: uppercase;
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-2) var(--fx-space-3);
+  border-radius: var(--fx-radius-sm);
+  font-size: var(--fx-text-sm);
+  font-weight: 500;
+  color: var(--fx-color-text-muted);
+  position: relative;
+  transition:
+    color var(--fx-duration-fast) var(--fx-ease-out),
+    background-color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-sidebar-link .fx-sidebar-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: none;
+  color: var(--fx-color-text-subtle);
+  transition: color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-sidebar-link:hover {
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text);
+}
+
+.fx-sidebar-link:hover .fx-sidebar-icon {
+  color: var(--fx-color-text-muted);
+}
+
+.fx-sidebar-link[aria-current='page'],
+.fx-sidebar-link.is-active {
+  background: color-mix(in srgb, var(--fx-color-primary) 10%, transparent);
+  color: var(--fx-color-primary);
+  font-weight: 600;
+}
+
+.fx-sidebar-link[aria-current='page'] .fx-sidebar-icon,
+.fx-sidebar-link.is-active .fx-sidebar-icon {
+  color: var(--fx-color-primary);
+}
+
+/* Edge motion accent on active link */
+.fx-sidebar-link[aria-current='page']::before,
+.fx-sidebar-link.is-active::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  width: 2px;
+  inset-block: var(--fx-space-2);
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-primary);
+}
+
+.fx-sidebar-label {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fx-sidebar-footer {
+  padding: var(--fx-space-3);
+  border-block-start: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--fx-z-fixed) - 1);
+  background: rgb(10 11 20 / 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-sidebar-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Collapsible / rail */
+.fx-sidebar-collapse .fx-sidebar {
+  width: 4.25rem;
+}
+
+.fx-sidebar-collapse .fx-sidebar .fx-sidebar-label,
+.fx-sidebar-collapse .fx-sidebar .fx-sidebar-group-label,
+.fx-sidebar-collapse .fx-sidebar .fx-sidebar-brand-text {
+  display: none;
+}
+
+.fx-sidebar-collapse .fx-sidebar .fx-sidebar-link {
+  justify-content: center;
+}
+
+/* Mobile overlay */
+@media (max-width: 767px) {
+  .fx-sidebar {
+    position: fixed;
+    inset-inline-start: 0;
+    inset-block: 0;
+    transform: translateX(-102%);
+    box-shadow: var(--fx-shadow-xl);
+  }
+
+  .fx-sidebar[data-fx-open='true'],
+  .fx-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .fx-sidebar[data-fx-open='true'] ~ .fx-sidebar-backdrop,
+  .fx-sidebar.open ~ .fx-sidebar-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .fx-sidebar-collapse .fx-sidebar {
+    width: var(--fx-sidebar-width);
+  }
+
+  .fx-sidebar-collapse .fx-sidebar .fx-sidebar-label,
+  .fx-sidebar-collapse .fx-sidebar .fx-sidebar-group-label,
+  .fx-sidebar-collapse .fx-sidebar .fx-sidebar-brand-text {
+    display: initial;
+  }
+
+  .fx-sidebar-collapse .fx-sidebar .fx-sidebar-link {
+    justify-content: flex-start;
+  }
+}

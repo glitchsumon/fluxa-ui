@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Fluxa UI · Components · Avatar
+   Square-with-subtle-radius (not full pill) for a structured identity.
+   ========================================================================== */
+
+.fx-avatar {
+  --fx-avatar-size: 2.5rem;
+  --fx-avatar-bg: color-mix(in srgb, var(--fx-color-primary) 14%, transparent);
+  --fx-avatar-color: var(--fx-color-primary);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--fx-avatar-size);
+  height: var(--fx-avatar-size);
+  flex: none;
+  border-radius: var(--fx-radius-md);
+  background: var(--fx-avatar-bg);
+  color: var(--fx-avatar-color);
+  font-size: calc(var(--fx-avatar-size) * 0.42);
+  font-weight: 650;
+  letter-spacing: var(--fx-tracking-wide);
+  user-select: none;
+  overflow: visible;
+}
+
+.fx-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.fx-avatar-fallback {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sizes */
+.fx-avatar-xs { --fx-avatar-size: 1.5rem; border-radius: var(--fx-radius-xs); }
+.fx-avatar-sm { --fx-avatar-size: 2rem; border-radius: var(--fx-radius-sm); }
+.fx-avatar-lg { --fx-avatar-size: 3.25rem; border-radius: var(--fx-radius-lg); }
+.fx-avatar-xl { --fx-avatar-size: 4.5rem; border-radius: var(--fx-radius-lg); }
+
+/* Square variant */
+.fx-avatar-square {
+  border-radius: var(--fx-radius-xs);
+}
+
+/* Semantic tints */
+.fx-avatar-success { --fx-avatar-bg: color-mix(in srgb, var(--fx-color-success) 14%, transparent); --fx-avatar-color: var(--fx-color-success); }
+.fx-avatar-danger { --fx-avatar-bg: color-mix(in srgb, var(--fx-color-danger) 14%, transparent); --fx-avatar-color: var(--fx-color-danger); }
+.fx-avatar-warning { --fx-avatar-bg: color-mix(in srgb, var(--fx-color-warning) 16%, transparent); --fx-avatar-color: color-mix(in srgb, var(--fx-color-warning) 75%, var(--fx-color-text)); }
+.fx-avatar-info { --fx-avatar-bg: color-mix(in srgb, var(--fx-color-info) 14%, transparent); --fx-avatar-color: var(--fx-color-info); }
+
+/* Presence dot */
+.fx-avatar .fx-avatar-presence {
+  position: absolute;
+  inset-block-end: -1px;
+  inset-inline-end: -1px;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: var(--fx-radius-full);
+  border: 2px solid var(--fx-color-surface);
+  background: var(--fx-color-success);
+}
+
+.fx-avatar .fx-avatar-presence-offline { background: var(--fx-color-text-subtle); }
+.fx-avatar .fx-avatar-presence-busy { background: var(--fx-color-warning); }
+
+/* Groups produce a stacked strip with structured overlap */
+.fx-avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.fx-avatar-group .fx-avatar {
+  border: 2px solid var(--fx-color-surface);
+}
+
+.fx-avatar-group .fx-avatar + .fx-avatar {
+  margin-inline-start: calc(var(--fx-avatar-size) * -0.3);
+}
+
+.fx-avatar-group .fx-avatar:hover {
+  z-index: 1;
+}

@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Fluxa UI · Components · Navbar
+   Sticky top navigation with logo, links and actions. Responsive
+   collapse to a drawer on mobile (powered by JS).
+   ========================================================================== */
+
+.fx-navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--fx-z-sticky);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--fx-space-4);
+  min-height: 3.75rem;
+  padding: var(--fx-space-2) var(--fx-space-4);
+  background: color-mix(in srgb, var(--fx-color-surface) 86%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-block-end: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fx-space-3);
+  font-size: var(--fx-text-lg);
+  font-weight: 700;
+  letter-spacing: var(--fx-tracking-tight);
+  color: var(--fx-color-text);
+  white-space: nowrap;
+}
+
+.fx-navbar-brand-logo {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-md);
+  background: var(--fx-color-primary);
+  color: var(--fx-color-primary-contrast);
+  font-weight: 800;
+}
+
+.fx-navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-1);
+}
+
+.fx-navbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fx-space-1);
+  padding: var(--fx-space-2) var(--fx-space-3);
+  border-radius: var(--fx-radius-sm);
+  font-size: var(--fx-text-sm);
+  font-weight: 500;
+  color: var(--fx-color-text-muted);
+  transition:
+    color var(--fx-duration-fast) var(--fx-ease-out),
+    background-color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-navbar-link:hover {
+  color: var(--fx-color-text);
+  background: var(--fx-color-surface-sunken);
+}
+
+.fx-navbar-link[aria-current='page'],
+.fx-navbar-link.is-active {
+  color: var(--fx-color-primary);
+  font-weight: 600;
+}
+
+.fx-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-2);
+}
+
+.fx-navbar-toggle {
+  display: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--fx-radius-sm);
+  align-items: center;
+  justify-content: center;
+  color: var(--fx-color-text);
+  cursor: pointer;
+}
+
+.fx-navbar-toggle:hover {
+  background: var(--fx-color-surface-sunken);
+}
+
+.fx-navbar-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Mobile collapse */
+@media (max-width: 767px) {
+  .fx-navbar-toggle {
+    display: inline-flex;
+  }
+
+  .fx-navbar-nav {
+    position: fixed;
+    inset-block-start: calc(3.75rem + 1px);
+    inset-inline: 0;
+    z-index: var(--fx-z-sticky);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--fx-space-1);
+    padding: var(--fx-space-3);
+    background: var(--fx-color-surface-raised);
+    border-block-end: 1px solid var(--fx-color-border);
+    box-shadow: var(--fx-shadow-md);
+    display: none;
+  }
+
+  .fx-navbar-nav.open,
+  .fx-navbar[data-fx-open='true'] .fx-navbar-nav {
+    display: flex;
+    animation: fx-navbar-in var(--fx-duration-normal) var(--fx-ease-out);
+  }
+
+  .fx-navbar-link {
+    padding: var(--fx-space-3) var(--fx-space-4);
+  }
+}
+
+@keyframes fx-navbar-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navbar spacing helper when sections sit below sticky nav */
+.fx-navbar-spacer {
+  height: 3.75rem;
+}

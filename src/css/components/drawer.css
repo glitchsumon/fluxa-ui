@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Fluxa UI · Components · Drawer
+   Slide-in panel from any edge with focus trapping and scroll lock.
+   ========================================================================== */
+
+.fx-drawer {
+  position: fixed;
+  z-index: var(--fx-z-modal);
+  inset: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.fx-drawer[data-fx-open='true'] {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.fx-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(10 11 20 / 0.45);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-drawer[data-fx-open='true'] .fx-drawer-backdrop {
+  opacity: 1;
+}
+
+.fx-drawer-panel {
+  position: absolute;
+  inset-block: 0;
+  width: min(22rem, 90vw);
+  background: var(--fx-color-surface-raised);
+  border-inline-end: 1px solid var(--fx-color-border);
+  box-shadow: var(--fx-shadow-xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--fx-duration-slow) var(--fx-ease-in-out);
+}
+
+/* Vertical positioning handled per edge */
+.fx-drawer-left { inset-inline-end: auto; }
+.fx-drawer-right { inset-inline-end: auto; }
+
+/* Horizontal drawers */
+.fx-drawer-top,
+.fx-drawer-bottom {
+  inset-inline: 0;
+  width: 100%;
+  height: min(60vh, 26rem);
+}
+
+.fx-drawer-top { inset-block-start: 0; inset-block-end: auto; }
+.fx-drawer-bottom { inset-block-start: auto; inset-block-end: 0; }
+
+/* Edge motion defaults — closed panels rest off-canvas */
+.fx-drawer-left .fx-drawer-panel,
+.fx-drawer[data-edge='left'] .fx-drawer-panel,
+.fx-drawer[data-edge='start'] .fx-drawer-panel {
+  inset-inline-start: 0;
+  transform: translateX(-102%);
+}
+
+.fx-drawer-right .fx-drawer-panel,
+.fx-drawer[data-edge='right'] .fx-drawer-panel,
+.fx-drawer[data-edge='end'] .fx-drawer-panel {
+  inset-inline-end: 0;
+  transform: translateX(102%);
+}
+
+.fx-drawer-top .fx-drawer-panel,
+.fx-drawer[data-edge='top'] .fx-drawer-panel {
+  transform: translateY(-102%);
+}
+
+.fx-drawer-bottom .fx-drawer-panel,
+.fx-drawer[data-edge='bottom'] .fx-drawer-panel {
+  top: auto;
+  bottom: 0;
+  transform: translateY(102%);
+}
+
+.fx-drawer[data-fx-open='true'] .fx-drawer-panel {
+  transform: translate(0, 0);
+}
+
+.fx-drawer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--fx-space-4);
+  padding: var(--fx-space-5) var(--fx-space-6);
+  border-bottom: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-drawer-title {
+  font-size: var(--fx-text-lg);
+  font-weight: 650;
+}
+
+.fx-drawer-close {
+  flex: none;
+  width: 1.875rem;
+  height: 1.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-sm);
+  color: var(--fx-color-text-subtle);
+  cursor: pointer;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-drawer-close:hover {
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text);
+}
+
+.fx-drawer-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--fx-space-6);
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+}
+
+.fx-drawer-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-4) var(--fx-space-6);
+  border-top: 1px solid var(--fx-color-border-subtle);
+}

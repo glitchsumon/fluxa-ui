@@ -1,0 +1,360 @@
+/* ==========================================================================
+   Fluxa UI · Core · Design Tokens
+   The single source of truth for the "Structured Motion" design language.
+   Components consume only the semantic tokens defined at the bottom.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* ------------------------------------------------------------------
+     RAW PALETTE · Brand
+     ------------------------------------------------------------------ */
+  --fx-palette-primary: #6b5df8;
+  --fx-palette-primary-hover: #5848e9;
+  --fx-palette-primary-active: #4438d4;
+  --fx-palette-primary-contrast: #ffffff;
+
+  /* ------------------------------------------------------------------
+     RAW PALETTE · Neutrals (light)
+     ------------------------------------------------------------------ */
+  --fx-palette-bg: #f6f6fb;
+  --fx-palette-surface: #ffffff;
+  --fx-palette-surface-raised: #ffffff;
+  --fx-palette-surface-sunken: #f1f1f8;
+  --fx-palette-text: #181a2c;
+  --fx-palette-text-muted: #5b5e75;
+  --fx-palette-text-subtle: #898ca0;
+  --fx-palette-text-invert: #ffffff;
+  --fx-palette-border: #e2e3ee;
+  --fx-palette-border-strong: #c6c8da;
+  --fx-palette-border-subtle: #ececf5;
+
+  /* ------------------------------------------------------------------
+     RAW PALETTE · Semantic (light)
+     ------------------------------------------------------------------ */
+  --fx-palette-success: #189c61;
+  --fx-palette-success-hover: #14854f;
+  --fx-palette-success-active: #106a40;
+  --fx-palette-success-contrast: #ffffff;
+
+  --fx-palette-warning: #e69a16;
+  --fx-palette-warning-hover: #d68a0c;
+  --fx-palette-warning-active: #b6760b;
+  --fx-palette-warning-contrast: #2f2600;
+
+  --fx-palette-danger: #e0435a;
+  --fx-palette-danger-hover: #c83a51;
+  --fx-palette-danger-active: #ad3045;
+  --fx-palette-danger-contrast: #ffffff;
+
+  --fx-palette-info: #2e9bdd;
+  --fx-palette-info-hover: #2686c2;
+  --fx-palette-info-active: #1e70a3;
+  --fx-palette-info-contrast: #ffffff;
+
+  /* ------------------------------------------------------------------
+     TYPOGRAPHY
+     ------------------------------------------------------------------ */
+  --fx-font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont,
+    'Helvetica Neue', Arial, sans-serif;
+  --fx-font-mono: 'SF Mono', 'Cascadia Code', 'JetBrains Mono', ui-monospace,
+    'Menlo', Consolas, monospace;
+
+  --fx-text-xs: 0.75rem;   /* 12px */
+  --fx-text-sm: 0.8125rem; /* 13px */
+  --fx-text-base: 0.875rem;/* 14px */
+  --fx-text-lg: 1rem;      /* 16px */
+  --fx-text-xl: 1.125rem;  /* 18px */
+  --fx-text-2xl: 1.375rem; /* 22px */
+  --fx-text-3xl: 1.75rem;  /* 28px */
+  --fx-text-4xl: 2.25rem;  /* 36px */
+  --fx-text-5xl: 3rem;     /* 48px */
+  --fx-text-6xl: 3.75rem;  /* 60px */
+
+  --fx-leading-tight: 1.2;
+  --fx-leading-snug: 1.4;
+  --fx-leading-normal: 1.55;
+  --fx-leading-relaxed: 1.7;
+
+  --fx-tracking-tight: -0.02em;
+  --fx-tracking-normal: 0;
+  --fx-tracking-wide: 0.04em;
+  --fx-tracking-wider: 0.09em;
+
+  /* ------------------------------------------------------------------
+     SPACING · 4px base scale
+     ------------------------------------------------------------------ */
+  --fx-space-0: 0rem;
+  --fx-space-1: 0.25rem;   /* 4px */
+  --fx-space-2: 0.5rem;    /* 8px */
+  --fx-space-3: 0.75rem;   /* 12px */
+  --fx-space-4: 1rem;      /* 16px */
+  --fx-space-5: 1.25rem;   /* 20px */
+  --fx-space-6: 1.5rem;    /* 24px */
+  --fx-space-8: 2rem;      /* 32px */
+  --fx-space-10: 2.5rem;   /* 40px */
+  --fx-space-12: 3rem;     /* 48px */
+  --fx-space-16: 4rem;     /* 64px */
+  --fx-space-20: 5rem;     /* 80px */
+  --fx-space-24: 6rem;     /* 96px */
+
+  /* ------------------------------------------------------------------
+     RADIUS
+     ------------------------------------------------------------------ */
+  --fx-radius-xs: 0.25rem;
+  --fx-radius-sm: 0.375rem;
+  --fx-radius-md: 0.5rem;
+  --fx-radius-lg: 0.75rem;
+  --fx-radius-xl: 1rem;
+  --fx-radius-2xl: 1.25rem;
+  --fx-radius-full: 9999px;
+
+  /* ------------------------------------------------------------------
+     SHADOW · layered, low-contrast (light)
+     ------------------------------------------------------------------ */
+  --fx-shadow-xs: 0 1px 2px rgb(24 26 44 / 0.04);
+  --fx-shadow-sm: 0 1px 2px rgb(24 26 44 / 0.05), 0 2px 4px rgb(24 26 44 / 0.04);
+  --fx-shadow-md: 0 2px 4px rgb(24 26 44 / 0.04), 0 6px 14px rgb(24 26 44 / 0.06);
+  --fx-shadow-lg: 0 4px 8px rgb(24 26 44 / 0.06), 0 14px 32px rgb(24 26 44 / 0.1);
+  --fx-shadow-xl: 0 8px 16px rgb(24 26 44 / 0.08), 0 28px 64px rgb(24 26 44 / 0.14);
+  --fx-shadow-inner: inset 0 1px 3px rgb(24 26 44 / 0.08);
+
+  /* ------------------------------------------------------------------
+     Z-INDEX LAYERS
+     ------------------------------------------------------------------ */
+  --fx-z-dropdown: 1000;
+  --fx-z-sticky: 1100;
+  --fx-z-fixed: 1200;
+  --fx-z-overlay: 1300;
+  --fx-z-modal: 1400;
+  --fx-z-popover: 1500;
+  --fx-z-toast: 1600;
+  --fx-z-tooltip: 1700;
+
+  /* ------------------------------------------------------------------
+     MOTION · "Structured Motion" timing
+     ------------------------------------------------------------------ */
+  --fx-duration-fast: 120ms;
+  --fx-duration-normal: 180ms;
+  --fx-duration-slow: 300ms;
+  --fx-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --fx-ease-in: cubic-bezier(0.4, 0, 0.66, -0.2);
+  --fx-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --fx-motion-translate: translateY(2px);
+
+  /* ------------------------------------------------------------------
+     BREAKPOINTS
+     ------------------------------------------------------------------ */
+  --fx-breakpoint-sm: 640px;
+  --fx-breakpoint-md: 768px;
+  --fx-breakpoint-lg: 1024px;
+  --fx-breakpoint-xl: 1280px;
+  --fx-breakpoint-2xl: 1536px;
+
+  /* ------------------------------------------------------------------
+     CONTAINER WIDTHS
+     ------------------------------------------------------------------ */
+  --fx-container-sm: 640px;
+  --fx-container-md: 800px;
+  --fx-container-lg: 1024px;
+  --fx-container-xl: 1200px;
+  --fx-container-2xl: 1360px;
+
+  /* ==============================================================
+     SEMANTIC TOKENS · light theme
+     ============================================================== */
+  --fx-color-primary: var(--fx-palette-primary);
+  --fx-color-primary-hover: var(--fx-palette-primary-hover);
+  --fx-color-primary-active: var(--fx-palette-primary-active);
+  --fx-color-primary-contrast: var(--fx-palette-primary-contrast);
+
+  --fx-color-bg: var(--fx-palette-bg);
+  --fx-color-surface: var(--fx-palette-surface);
+  --fx-color-surface-raised: var(--fx-palette-surface-raised);
+  --fx-color-surface-sunken: var(--fx-palette-surface-sunken);
+
+  --fx-color-text: var(--fx-palette-text);
+  --fx-color-text-muted: var(--fx-palette-text-muted);
+  --fx-color-text-subtle: var(--fx-palette-text-subtle);
+  --fx-color-text-invert: var(--fx-palette-text-invert);
+
+  --fx-color-border: var(--fx-palette-border);
+  --fx-color-border-strong: var(--fx-palette-border-strong);
+  --fx-color-border-subtle: var(--fx-palette-border-subtle);
+
+  --fx-color-success: var(--fx-palette-success);
+  --fx-color-success-hover: var(--fx-palette-success-hover);
+  --fx-color-success-active: var(--fx-palette-success-active);
+  --fx-color-success-contrast: var(--fx-palette-success-contrast);
+
+  --fx-color-warning: var(--fx-palette-warning);
+  --fx-color-warning-hover: var(--fx-palette-warning-hover);
+  --fx-color-warning-active: var(--fx-palette-warning-active);
+  --fx-color-warning-contrast: var(--fx-palette-warning-contrast);
+
+  --fx-color-danger: var(--fx-palette-danger);
+  --fx-color-danger-hover: var(--fx-palette-danger-hover);
+  --fx-color-danger-active: var(--fx-palette-danger-active);
+  --fx-color-danger-contrast: var(--fx-palette-danger-contrast);
+
+  --fx-color-info: var(--fx-palette-info);
+  --fx-color-info-hover: var(--fx-palette-info-hover);
+  --fx-color-info-active: var(--fx-palette-info-active);
+  --fx-color-info-contrast: var(--fx-palette-info-contrast);
+
+  --fx-focus-ring: 0 0 0 3px color-mix(in srgb, var(--fx-color-primary) 28%, transparent);
+}
+
+/* ==============================================================
+   SYSTEM PREFERENCE · dark
+   Applied only when the user has not forced a theme.
+   ============================================================== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --fx-palette-bg: #0e0f16;
+    --fx-palette-surface: #15161f;
+    --fx-palette-surface-raised: #1a1c29;
+    --fx-palette-surface-sunken: #10111a;
+    --fx-palette-text: #e9eaf2;
+    --fx-palette-text-muted: #a3a6ba;
+    --fx-palette-text-subtle: #72758b;
+    --fx-palette-text-invert: #0e0f16;
+    --fx-palette-border: #272937;
+    --fx-palette-border-strong: #353849;
+    --fx-palette-border-subtle: #1f2130;
+
+    --fx-palette-primary: #7c6ffa;
+    --fx-palette-primary-hover: #8b80fb;
+    --fx-palette-primary-active: #6657e8;
+    --fx-palette-primary-contrast: #ffffff;
+
+    --fx-palette-success: #23ac6e;
+    --fx-palette-success-hover: #2fbd7e;
+    --fx-palette-success-active: #178f59;
+    --fx-palette-success-contrast: #ffffff;
+
+    --fx-palette-warning: #f0a423;
+    --fx-palette-warning-hover: #f6b13b;
+    --fx-palette-warning-active: #d78c0e;
+    --fx-palette-warning-contrast: #2f2600;
+
+    --fx-palette-danger: #ef4d66;
+    --fx-palette-danger-hover: #f2627a;
+    --fx-palette-danger-active: #d03952;
+    --fx-palette-danger-contrast: #ffffff;
+
+    --fx-palette-info: #3ea7e8;
+    --fx-palette-info-hover: #5db5ed;
+    --fx-palette-info-active: #2f8fc9;
+    --fx-palette-info-contrast: #ffffff;
+
+    --fx-shadow-xs: 0 1px 2px rgb(0 0 0 / 0.3);
+    --fx-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.35), 0 2px 4px rgb(0 0 0 / 0.3);
+    --fx-shadow-md: 0 2px 4px rgb(0 0 0 / 0.3), 0 8px 16px rgb(0 0 0 / 0.4);
+    --fx-shadow-lg: 0 4px 8px rgb(0 0 0 / 0.35), 0 16px 40px rgb(0 0 0 / 0.5);
+    --fx-shadow-xl: 0 8px 16px rgb(0 0 0 / 0.4), 0 32px 72px rgb(0 0 0 / 0.6);
+    --fx-shadow-inner: inset 0 1px 3px rgb(0 0 0 / 0.35);
+  }
+}
+
+/* ==============================================================
+   EXPLICIT THEME · dark  (overrides system preference)
+   ============================================================== */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --fx-palette-bg: #0e0f16;
+  --fx-palette-surface: #15161f;
+  --fx-palette-surface-raised: #1a1c29;
+  --fx-palette-surface-sunken: #10111a;
+  --fx-palette-text: #e9eaf2;
+  --fx-palette-text-muted: #a3a6ba;
+  --fx-palette-text-subtle: #72758b;
+  --fx-palette-text-invert: #0e0f16;
+  --fx-palette-border: #272937;
+  --fx-palette-border-strong: #353849;
+  --fx-palette-border-subtle: #1f2130;
+
+  --fx-palette-primary: #7c6ffa;
+  --fx-palette-primary-hover: #8b80fb;
+  --fx-palette-primary-active: #6657e8;
+  --fx-palette-primary-contrast: #ffffff;
+
+  --fx-palette-success: #23ac6e;
+  --fx-palette-success-hover: #2fbd7e;
+  --fx-palette-success-active: #178f59;
+  --fx-palette-success-contrast: #ffffff;
+
+  --fx-palette-warning: #f0a423;
+  --fx-palette-warning-hover: #f6b13b;
+  --fx-palette-warning-active: #d78c0e;
+  --fx-palette-warning-contrast: #2f2600;
+
+  --fx-palette-danger: #ef4d66;
+  --fx-palette-danger-hover: #f2627a;
+  --fx-palette-danger-active: #d03952;
+  --fx-palette-danger-contrast: #ffffff;
+
+  --fx-palette-info: #3ea7e8;
+  --fx-palette-info-hover: #5db5ed;
+  --fx-palette-info-active: #2f8fc9;
+  --fx-palette-info-contrast: #ffffff;
+
+  --fx-shadow-xs: 0 1px 2px rgb(0 0 0 / 0.3);
+  --fx-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.35), 0 2px 4px rgb(0 0 0 / 0.3);
+  --fx-shadow-md: 0 2px 4px rgb(0 0 0 / 0.3), 0 8px 16px rgb(0 0 0 / 0.4);
+  --fx-shadow-lg: 0 4px 8px rgb(0 0 0 / 0.35), 0 16px 40px rgb(0 0 0 / 0.5);
+  --fx-shadow-xl: 0 8px 16px rgb(0 0 0 / 0.4), 0 32px 72px rgb(0 0 0 / 0.6);
+  --fx-shadow-inner: inset 0 1px 3px rgb(0 0 0 / 0.35);
+}
+
+/* ==============================================================
+   EXPLICIT THEME · light  (overrides system preference)
+   ============================================================== */
+:root[data-theme='light'] {
+  color-scheme: light;
+  --fx-palette-bg: #f6f6fb;
+  --fx-palette-surface: #ffffff;
+  --fx-palette-surface-raised: #ffffff;
+  --fx-palette-surface-sunken: #f1f1f8;
+  --fx-palette-text: #181a2c;
+  --fx-palette-text-muted: #5b5e75;
+  --fx-palette-text-subtle: #898ca0;
+  --fx-palette-text-invert: #ffffff;
+  --fx-palette-border: #e2e3ee;
+  --fx-palette-border-strong: #c6c8da;
+  --fx-palette-border-subtle: #ececf5;
+
+  --fx-palette-primary: #6b5df8;
+  --fx-palette-primary-hover: #5848e9;
+  --fx-palette-primary-active: #4438d4;
+  --fx-palette-primary-contrast: #ffffff;
+
+  --fx-palette-success: #189c61;
+  --fx-palette-success-hover: #14854f;
+  --fx-palette-success-active: #106a40;
+  --fx-palette-success-contrast: #ffffff;
+
+  --fx-palette-warning: #e69a16;
+  --fx-palette-warning-hover: #d68a0c;
+  --fx-palette-warning-active: #b6760b;
+  --fx-palette-warning-contrast: #2f2600;
+
+  --fx-palette-danger: #e0435a;
+  --fx-palette-danger-hover: #c83a51;
+  --fx-palette-danger-active: #ad3045;
+  --fx-palette-danger-contrast: #ffffff;
+
+  --fx-palette-info: #2e9bdd;
+  --fx-palette-info-hover: #2686c2;
+  --fx-palette-info-active: #1e70a3;
+  --fx-palette-info-contrast: #ffffff;
+
+  --fx-shadow-xs: 0 1px 2px rgb(24 26 44 / 0.04);
+  --fx-shadow-sm: 0 1px 2px rgb(24 26 44 / 0.05), 0 2px 4px rgb(24 26 44 / 0.04);
+  --fx-shadow-md: 0 2px 4px rgb(24 26 44 / 0.04), 0 6px 14px rgb(24 26 44 / 0.06);
+  --fx-shadow-lg: 0 4px 8px rgb(24 26 44 / 0.06), 0 14px 32px rgb(24 26 44 / 0.1);
+  --fx-shadow-xl: 0 8px 16px rgb(24 26 44 / 0.08), 0 28px 64px rgb(24 26 44 / 0.14);
+  --fx-shadow-inner: inset 0 1px 3px rgb(24 26 44 / 0.08);
+}

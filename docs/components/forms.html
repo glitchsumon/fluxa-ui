@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Forms — Fluxa UI</title>
+    <script type="module" src="/assets/docs.js"></script>
+  </head>
+  <body data-root="../">
+    <div id="fx-doc-topbar"></div>
+    <div class="fx-doc-layout">
+      <aside id="fx-doc-sidebar" class="fx-doc-sidebar"></aside>
+      <main id="fx-doc-main" class="fx-doc-main">
+        <div id="fx-doc-content" class="fx-doc-content">
+          <div class="fx-doc-page-head">
+            <h1 class="fx-heading-1">Forms</h1>
+            <p>Inputs, selects and textareas with a structured focus treatment and
+            validation states that never rely on color alone.</p>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Inputs</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-form-grid">
+                <div>
+                  <label class="fx-form-label" for="f-email">Email</label>
+                  <input id="f-email" class="fx-input" type="email" placeholder="you@example.com" />
+                  <p class="fx-form-hint">We only use this to log you in.</p>
+                </div>
+                <div>
+                  <label class="fx-form-label" for="f-name">Name</label>
+                  <input id="f-name" class="fx-input" type="text" placeholder="Ada Lovelace" />
+                </div>
+                <div>
+                  <label class="fx-form-label" for="f-role">Role</label>
+                  <select id="f-role" class="fx-select">
+                    <option>Designer</option>
+                    <option selected>Engineer</option>
+                    <option>Researcher</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="fx-form-label" for="f-bio">Bio</label>
+                  <textarea id="f-bio" class="fx-textarea" rows="4" placeholder="A short summary of who you build for…"></textarea>
+                  <p class="fx-form-message fx-form-message-error">
+                    <svg style="width: 0.875rem; height: 0.875rem; flex: none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                    Minimum 40 characters.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;label class="fx-form-label" for="email"&gt;Email&lt;/label&gt;
+&lt;input id="email" class="fx-input" type="email"
+       placeholder="you@example.com" /&gt;
+&lt;p class="fx-form-hint"&gt;Only used to log you in.&lt;/p&gt;
+
+&lt;select class="fx-select"&gt;…&lt;/select&gt;
+&lt;textarea class="fx-textarea"&gt;…&lt;/textarea&gt;
+
+&lt;p class="fx-form-message fx-form-message-error"&gt;
+  &lt;svg&gt;…&lt;/svg&gt; Minimum 40 characters.
+&lt;/p&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Validation state</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-form-grid">
+                <div>
+                  <label class="fx-form-label" for="f-ok">Workspace</label>
+                  <input id="f-ok" class="fx-input fx-input-success" type="text" value="Fluxa Labs" aria-describedby="f-ok-hint" />
+                  <p id="f-ok-hint" class="fx-form-message fx-form-message-success">Looks good — available.</p>
+                </div>
+                <div>
+                  <label class="fx-form-label" for="f-err">Project slug</label>
+                  <input id="f-err" class="fx-input fx-input-error" type="text" value="fluxa ui" aria-invalid="true" aria-describedby="f-err-err" />
+                  <p id="f-err-err" class="fx-form-error">Slug can't contain spaces. Suggestion: <code>fluxa-ui</code>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="fx-doc-code">
+              <div class="fx-doc-code-header"><span class="fx-doc-code-lang">HTML</span></div>
+              <pre><code>&lt;input class="fx-input fx-input-error" type="text"
+       aria-invalid="true" aria-describedby="slug-err" /&gt;
+&lt;p id="slug-err" class="fx-form-error"&gt;
+  Slug can't contain spaces.
+&lt;/p&gt;</code></pre>
+            </div>
+          </div>
+
+          <h2 class="fx-doc-h2 fx-heading-3">Notes</h2>
+          <div class="fx-doc-block">
+            <div class="fx-doc-preview fx-doc-preview-column">
+              <div class="fx-list">
+                <div class="fx-list-item">States: <span class="fx-code">fx-input-error</span> / <span class="fx-code">fx-input-success</span> on the field, message text beside it.</div>
+                <div class="fx-list-item">Validation is always message + icon/border + <span class="fx-code">aria-invalid</span> — never color alone.</div>
+                <div class="fx-list-item">The focus ring stays visible in both themes; it is the marker of interactivity.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

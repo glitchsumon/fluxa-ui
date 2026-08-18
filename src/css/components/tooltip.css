@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Fluxa UI · Components · Tooltip
+   Minimal floating label. Enters from below with structured motion.
+   ========================================================================== */
+
+.fx-tooltip {
+  position: absolute;
+  z-index: var(--fx-z-tooltip);
+  padding: var(--fx-space-1) var(--fx-space-3);
+  font-size: var(--fx-text-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: var(--fx-color-text-invert);
+  background: var(--fx-color-text);
+  border-radius: var(--fx-radius-xs);
+  box-shadow: var(--fx-shadow-md);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(3px);
+  transition:
+    opacity var(--fx-duration-fast) var(--fx-ease-out),
+    transform var(--fx-duration-normal) var(--fx-ease-in-out),
+    visibility 0s linear var(--fx-duration-normal);
+}
+
+.fx-tooltip[data-show='true'],
+.fx-tooltip[data-fx-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.fx-tooltip[data-placement='top'] { transform: translateY(-3px); }
+.fx-tooltip[data-placement='top'][data-show='true'],
+.fx-tooltip[data-placement='top'][data-fx-open='true'] {
+  transform: translateY(0);
+}
+
+.fx-tooltip[data-placement='start'] { transform: translateX(-3px); }
+.fx-tooltip[data-placement='start'][data-show='true'] { transform: translateX(0); }
+
+.fx-tooltip[data-placement='end'] { transform: translateX(3px); }
+.fx-tooltip[data-placement='end'][data-show='true'] { transform: translateX(0); }
+
+/* ------------------------------------------------------------------
+   Popover (rich tooltip-like panel)
+   ------------------------------------------------------------------ */
+.fx-popover {
+  position: absolute;
+  z-index: var(--fx-z-popover);
+  width: 16rem;
+  background: var(--fx-color-surface-raised);
+  border: 1px solid var(--fx-color-border);
+  border-radius: var(--fx-radius-md);
+  box-shadow: var(--fx-shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px) scale(0.985);
+  transition:
+    opacity var(--fx-duration-fast) var(--fx-ease-out),
+    transform var(--fx-duration-normal) var(--fx-ease-in-out),
+    visibility 0s linear var(--fx-duration-normal);
+}
+
+.fx-popover[data-fx-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
+}
+
+.fx-popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-3) var(--fx-space-4);
+  border-bottom: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-popover-title {
+  font-size: var(--fx-text-sm);
+  font-weight: 650;
+}
+
+.fx-popover-close {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-sm);
+  color: var(--fx-color-text-subtle);
+  cursor: pointer;
+}
+
+.fx-popover-close:hover {
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text);
+}
+
+.fx-popover-body {
+  padding: var(--fx-space-4);
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+}
+
+.fx-popover-footer {
+  padding: var(--fx-space-3) var(--fx-space-4);
+  border-top: 1px solid var(--fx-color-border-subtle);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--fx-space-2);
+}

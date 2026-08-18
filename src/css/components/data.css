@@ -1,0 +1,250 @@
+/* ==========================================================================
+   Fluxa UI · Components · Divider · List · Empty state · Timeline · Stats
+   ========================================================================== */
+
+/* ------------------------------------------------------------------
+   Divider
+   ------------------------------------------------------------------ */
+.fx-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-3);
+  color: var(--fx-color-text-subtle);
+  font-size: var(--fx-text-xs);
+  white-space: nowrap;
+}
+
+.fx-divider::before,
+.fx-divider::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--fx-color-border);
+}
+
+.fx-divider-divider-y {
+  width: 1px;
+  height: 1.5rem;
+  background: var(--fx-color-border);
+  flex: none;
+}
+
+/* ------------------------------------------------------------------
+   List
+   ------------------------------------------------------------------ */
+.fx-list {
+  display: flex;
+  flex-direction: column;
+  background: var(--fx-color-surface);
+  border: 1px solid var(--fx-color-border-subtle);
+  border-radius: var(--fx-radius-md);
+  overflow: hidden;
+}
+
+.fx-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--fx-space-3);
+  padding: var(--fx-space-3) var(--fx-space-4);
+  color: var(--fx-color-text);
+  font-size: var(--fx-text-sm);
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    padding-inline-start var(--fx-duration-normal) var(--fx-ease-in-out);
+}
+
+.fx-list-item + .fx-list-item {
+  border-top: 1px solid var(--fx-color-border-subtle);
+}
+
+.fx-list-item-icon {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  color: var(--fx-color-text-muted);
+}
+
+.fx-list-item-interactive {
+  cursor: pointer;
+}
+
+.fx-list-item-interactive:hover {
+  background: var(--fx-color-surface-sunken);
+  padding-inline-start: calc(var(--fx-space-4) + var(--fx-space-1));
+}
+
+.fx-list-item-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fx-list-item.active {
+  background: color-mix(in srgb, var(--fx-color-primary) 8%, transparent);
+  color: var(--fx-color-primary);
+}
+
+/* ------------------------------------------------------------------
+   Empty state
+   ------------------------------------------------------------------ */
+.fx-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--fx-space-2);
+  padding: var(--fx-space-12) var(--fx-space-6);
+}
+
+.fx-empty-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-lg);
+  background: color-mix(in srgb, var(--fx-color-primary) 10%, transparent);
+  color: var(--fx-color-primary);
+  margin-block-end: var(--fx-space-2);
+}
+
+.fx-empty-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.fx-empty-title {
+  font-size: var(--fx-text-lg);
+  font-weight: 650;
+  color: var(--fx-color-text);
+}
+
+.fx-empty-description {
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+  max-width: 26rem;
+}
+
+.fx-empty-actions {
+  display: flex;
+  gap: var(--fx-space-3);
+  margin-block-start: var(--fx-space-3);
+}
+
+/* ------------------------------------------------------------------
+   Timeline
+   ------------------------------------------------------------------ */
+.fx-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fx-space-6);
+  padding-inline-start: var(--fx-space-2);
+}
+
+.fx-timeline-item {
+  position: relative;
+  display: flex;
+  gap: var(--fx-space-4);
+}
+
+.fx-timeline-item::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 6px;
+  inset-block-start: 22px;
+  inset-block-end: -24px;
+  width: 1px;
+  background: var(--fx-color-border);
+}
+
+.fx-timeline-item:last-child::before {
+  display: none;
+}
+
+.fx-timeline-marker {
+  position: relative;
+  flex: none;
+  width: 13px;
+  height: 13px;
+  border-radius: var(--fx-radius-full);
+  border: 2px solid var(--fx-color-primary);
+  background: var(--fx-color-surface);
+  margin-block-start: 4px;
+}
+
+.fx-timeline-marker-success { border-color: var(--fx-color-success); }
+.fx-timeline-marker-warning { border-color: var(--fx-color-warning); }
+.fx-timeline-marker-danger { border-color: var(--fx-color-danger); }
+
+.fx-timeline-item:last-child .fx-timeline-marker {
+  background: var(--fx-color-primary);
+}
+
+.fx-timeline-item:last-child:not([data-state]) .fx-timeline-marker {
+  background: transparent;
+}
+
+.fx-timeline-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fx-timeline-title {
+  font-size: var(--fx-text-sm);
+  font-weight: 600;
+  color: var(--fx-color-text);
+}
+
+.fx-timeline-time {
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-timeline-body {
+  font-size: var(--fx-text-sm);
+  color: var(--fx-color-text-muted);
+  margin-block-start: var(--fx-space-1);
+}
+
+/* ------------------------------------------------------------------
+   Stats
+   ------------------------------------------------------------------ */
+.fx-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fx-space-1);
+}
+
+.fx-stat-label {
+  font-size: var(--fx-text-xs);
+  font-weight: 600;
+  letter-spacing: var(--fx-tracking-wide);
+  text-transform: uppercase;
+  color: var(--fx-color-text-subtle);
+}
+
+.fx-stat-value {
+  font-size: var(--fx-text-2xl);
+  font-weight: 700;
+  line-height: var(--fx-leading-tight);
+  color: var(--fx-color-text);
+  letter-spacing: var(--fx-tracking-tight);
+}
+
+.fx-stat-value-lg { font-size: var(--fx-text-4xl); }
+
+.fx-stat-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: var(--fx-text-xs);
+  font-weight: 600;
+}
+
+.fx-stat-delta-up { color: var(--fx-color-success); }
+.fx-stat-delta-down { color: var(--fx-color-danger); }
+
+/* Center icon + text hero stat */
+.fx-stat-hero {
+  text-align: center;
+}

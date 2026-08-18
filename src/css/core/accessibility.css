@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Fluxa UI · Core · Accessibility
+   Screen-reader helpers, focus management, reduced-motion support.
+   ========================================================================== */
+
+/* Visually hidden but present for screen readers */
+.fx-visually-hidden,
+.fx-sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link */
+.fx-skip-link {
+  position: absolute;
+  inset-block-start: var(--fx-space-2);
+  inset-inline-start: var(--fx-space-2);
+  z-index: 9999;
+  padding: var(--fx-space-2) var(--fx-space-4);
+  background: var(--fx-color-primary);
+  color: var(--fx-color-primary-contrast);
+  border-radius: var(--fx-radius-sm);
+  transform: translateY(-300%);
+  transition: transform var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------------
+   Focus visibility
+   ------------------------------------------------------------------ */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--fx-focus-ring);
+  border-radius: inherit;
+}
+
+/* Focus ring available on all interactive components without extra JS */
+.fx-focus-ring:focus-visible {
+  outline: none;
+  box-shadow: var(--fx-focus-ring);
+}
+
+/* ------------------------------------------------------------------
+   Reduced motion
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scroll lock applied via JS (fx-scroll-lock on <body>) */
+body.fx-scroll-lock {
+  overflow: hidden;
+}
+
+/* Hide autofill glow */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px var(--fx-color-surface) inset;
+  -webkit-text-fill-color: var(--fx-color-text);
+}

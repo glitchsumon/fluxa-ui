@@ -1,0 +1,145 @@
+/* ==========================================================================
+   Fluxa UI · Components · Stepper
+   Horizontal/vertical step progress with structured connecting lines.
+   ========================================================================== */
+
+.fx-stepper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.fx-step {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  text-align: center;
+}
+
+.fx-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  inset-inline-start: calc(50% + 1.25rem);
+  width: calc(100% - 2.5rem);
+  height: 2px;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-border);
+  transition: background-color var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-step-marker {
+  position: relative;
+  z-index: 1;
+  width: 2rem;
+  height: 2rem;
+  margin-inline: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--fx-radius-full);
+  font-size: var(--fx-text-sm);
+  font-weight: 650;
+  background: var(--fx-color-surface);
+  border: 2px solid var(--fx-color-border-strong);
+  color: var(--fx-color-text-subtle);
+  transition:
+    border-color var(--fx-duration-fast) var(--fx-ease-out),
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-step-marker svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.fx-step-label {
+  margin-block-start: var(--fx-space-2);
+  font-size: var(--fx-text-xs);
+  font-weight: 600;
+  color: var(--fx-color-text-subtle);
+  transition: color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-step-description {
+  font-size: var(--fx-text-xs);
+  color: var(--fx-color-text-subtle);
+  margin-block-start: 2px;
+}
+
+/* Active */
+.fx-step.is-active .fx-step-marker {
+  border-color: var(--fx-color-primary);
+  color: var(--fx-color-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--fx-color-primary) 18%, transparent);
+}
+
+.fx-step.is-active .fx-step-label {
+  color: var(--fx-color-text);
+}
+
+/* Complete */
+.fx-step.is-complete:not(:last-child)::after {
+  background: var(--fx-color-primary);
+}
+
+.fx-step.is-complete .fx-step-marker {
+  border-color: var(--fx-color-primary);
+  background: var(--fx-color-primary);
+  color: var(--fx-color-primary-contrast);
+}
+
+.fx-step.is-complete .fx-step-label {
+  color: var(--fx-color-primary);
+}
+
+/* Vertical stepper */
+.fx-stepper-vertical {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.fx-stepper-vertical .fx-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--fx-space-4);
+  text-align: start;
+  padding-block-end: var(--fx-space-6);
+  position: relative;
+}
+
+.fx-stepper-vertical .fx-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0.9375rem;
+  inset-block-start: 2rem;
+  inset-block-end: 0;
+  width: 2px;
+  background: var(--fx-color-border);
+  transition: background-color var(--fx-duration-normal) var(--fx-ease-out);
+}
+
+.fx-stepper-vertical .fx-step.is-complete:not(:last-child)::before {
+  background: var(--fx-color-primary);
+}
+
+.fx-stepper-vertical .fx-step-marker {
+  margin-inline: 0;
+  flex: none;
+}
+
+.fx-stepper-vertical .fx-step-label {
+  margin-block-start: 0;
+  font-size: var(--fx-text-sm);
+}
+
+.fx-stepper-vertical .fx-step-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.fx-stepper-vertical .fx-step:last-child {
+  padding-block-end: 0;
+}

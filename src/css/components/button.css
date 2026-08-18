@@ -1,0 +1,267 @@
+/* ==========================================================================
+   Fluxa UI · Components · Button
+   "Edge Motion": hover reveals a moving edge accent + trailing marker.
+   No flat color sweeps — edges and internals do the talking.
+   ========================================================================== */
+
+.fx-btn {
+  --fx-btn-bg: var(--fx-color-surface);
+  --fx-btn-color: var(--fx-color-text);
+  --fx-btn-border: transparent;
+  --fx-btn-hover-bg: var(--fx-color-surface-raised);
+  --fx-btn-hover-color: var(--fx-color-text);
+  --fx-btn-hover-border: var(--fx-color-border-strong);
+  --fx-btn-active-bg: var(--fx-color-surface-sunken);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--fx-space-2);
+  padding: var(--fx-space-2) var(--fx-space-4);
+  font-size: var(--fx-text-sm);
+  font-weight: 550;
+  line-height: 1.25;
+  letter-spacing: var(--fx-tracking-normal);
+  color: var(--fx-btn-color);
+  background-color: var(--fx-btn-bg);
+  border: 1px solid var(--fx-btn-border);
+  border-radius: var(--fx-radius-md);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+  text-align: center;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    border-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out),
+    box-shadow var(--fx-duration-fast) var(--fx-ease-out),
+    transform var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-btn::after {
+  /* Edge motion — a 2px under-edge that slides in from the center */
+  content: '';
+  position: absolute;
+  inset-inline: var(--fx-space-3);
+  bottom: 0;
+  height: 2px;
+  border-radius: var(--fx-radius-full);
+  background: var(--fx-color-primary, currentColor);
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+  transition:
+    transform var(--fx-duration-normal) var(--fx-ease-in-out),
+    opacity var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-btn:hover:not(:disabled):not(.fx-btn-loading) {
+  background-color: var(--fx-btn-hover-bg);
+  border-color: var(--fx-btn-hover-border);
+  color: var(--fx-btn-hover-color);
+}
+
+.fx-btn:hover:not(:disabled):not(.fx-btn-loading)::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.fx-btn:active:not(:disabled) {
+  background-color: var(--fx-btn-active-bg);
+  transform: translateY(1px);
+}
+
+.fx-btn:disabled,
+.fx-btn[aria-disabled='true'] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.fx-btn:disabled::after {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+/* Icon inside button — moves with edge motion */
+.fx-btn .fx-btn-icon {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  transition: transform var(--fx-duration-normal) var(--fx-ease-in-out);
+}
+
+.fx-btn:hover:not(:disabled):not(.fx-btn-loading) .fx-btn-icon {
+  transform: translateX(2px);
+}
+
+/* ------------------------------------------------------------------
+   Variants
+   ------------------------------------------------------------------ */
+.fx-btn-primary {
+  --fx-btn-bg: var(--fx-color-primary);
+  --fx-btn-color: var(--fx-color-primary-contrast);
+  --fx-btn-hover-bg: var(--fx-color-primary-hover);
+  --fx-btn-hover-color: var(--fx-color-primary-contrast);
+  --fx-btn-hover-border: transparent;
+  --fx-btn-active-bg: var(--fx-color-primary-active);
+  box-shadow: var(--fx-shadow-xs);
+}
+
+.fx-btn-primary::after {
+  background: color-mix(in srgb, var(--fx-color-primary-contrast) 70%, transparent);
+}
+
+.fx-btn-secondary {
+  --fx-btn-bg: var(--fx-color-surface);
+  --fx-btn-border: var(--fx-color-border);
+  --fx-btn-hover-bg: var(--fx-color-surface);
+  --fx-btn-hover-border: var(--fx-color-border-strong);
+  box-shadow: var(--fx-shadow-xs);
+}
+
+.fx-btn-soft {
+  --fx-btn-bg: color-mix(in srgb, var(--fx-color-primary) 10%, transparent);
+  --fx-btn-color: var(--fx-color-primary);
+  --fx-btn-hover-bg: color-mix(in srgb, var(--fx-color-primary) 17%, transparent);
+  --fx-btn-hover-color: var(--fx-color-primary-hover);
+  --fx-btn-hover-border: transparent;
+  --fx-btn-active-bg: color-mix(in srgb, var(--fx-color-primary) 24%, transparent);
+}
+
+.fx-btn-outline {
+  --fx-btn-bg: transparent;
+  --fx-btn-color: var(--fx-color-primary);
+  --fx-btn-border: color-mix(in srgb, var(--fx-color-primary) 45%, transparent);
+  --fx-btn-hover-bg: color-mix(in srgb, var(--fx-color-primary) 8%, transparent);
+  --fx-btn-hover-color: var(--fx-color-primary);
+  --fx-btn-hover-border: var(--fx-color-primary);
+}
+
+.fx-btn-ghost {
+  --fx-btn-bg: transparent;
+  --fx-btn-color: var(--fx-color-text-muted);
+  --fx-btn-hover-bg: var(--fx-color-surface-sunken);
+  --fx-btn-hover-color: var(--fx-color-text);
+  --fx-btn-hover-border: transparent;
+}
+
+.fx-btn-danger {
+  --fx-btn-bg: var(--fx-color-danger);
+  --fx-btn-color: var(--fx-color-danger-contrast);
+  --fx-btn-hover-bg: var(--fx-color-danger-hover);
+  --fx-btn-hover-color: var(--fx-color-danger-contrast);
+  --fx-btn-hover-border: transparent;
+  --fx-btn-active-bg: var(--fx-color-danger-active);
+}
+
+.fx-btn-success {
+  --fx-btn-bg: var(--fx-color-success);
+  --fx-btn-color: var(--fx-color-success-contrast);
+  --fx-btn-hover-bg: var(--fx-color-success-hover);
+  --fx-btn-hover-color: var(--fx-color-success-contrast);
+  --fx-btn-hover-border: transparent;
+  --fx-btn-active-bg: var(--fx-color-success-active);
+}
+
+.fx-btn-warning {
+  --fx-btn-bg: var(--fx-color-warning);
+  --fx-btn-color: var(--fx-color-warning-contrast);
+  --fx-btn-hover-bg: var(--fx-color-warning-hover);
+  --fx-btn-hover-color: var(--fx-color-warning-contrast);
+  --fx-btn-hover-border: transparent;
+  --fx-btn-active-bg: var(--fx-color-warning-active);
+}
+
+/* ------------------------------------------------------------------
+   Sizes
+   ------------------------------------------------------------------ */
+.fx-btn-sm {
+  padding: var(--fx-space-1) var(--fx-space-3);
+  font-size: var(--fx-text-xs);
+  border-radius: var(--fx-radius-sm);
+  gap: var(--fx-space-1);
+}
+
+.fx-btn-lg {
+  padding: var(--fx-space-3) var(--fx-space-6);
+  font-size: var(--fx-text-base);
+  border-radius: var(--fx-radius-lg);
+}
+
+/* square icon-only button */
+.fx-btn-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  gap: 0;
+  flex: none;
+}
+
+.fx-btn-icon.fx-btn-sm {
+  width: 1.875rem;
+  height: 1.875rem;
+}
+
+.fx-btn-icon.fx-btn-lg {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+/* ------------------------------------------------------------------
+   Button group
+   ------------------------------------------------------------------ */
+.fx-btn-group {
+  display: inline-flex;
+  align-items: stretch;
+}
+
+.fx-btn-group > .fx-btn {
+  border-radius: 0;
+}
+
+.fx-btn-group > .fx-btn:first-child {
+  border-start-start-radius: var(--fx-radius-md);
+  border-end-start-radius: var(--fx-radius-md);
+}
+
+.fx-btn-group > .fx-btn:last-child {
+  border-start-end-radius: var(--fx-radius-md);
+  border-end-end-radius: var(--fx-radius-md);
+}
+
+.fx-btn-group > .fx-btn + .fx-btn {
+  margin-inline-start: -1px;
+}
+
+.fx-btn-group > .fx-btn[aria-pressed='true'],
+.fx-btn-group > .fx-btn.is-active {
+  z-index: 1;
+}
+
+/* ------------------------------------------------------------------
+   Loading state
+   ------------------------------------------------------------------ */
+.fx-btn-loading {
+  pointer-events: none;
+}
+
+.fx-btn-loading .fx-btn-label {
+  opacity: 0;
+}
+
+.fx-btn .fx-spinner {
+  color: currentColor;
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fx-btn:not(.fx-btn-loading) .fx-spinner {
+  display: none;
+}

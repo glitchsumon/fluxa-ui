@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Fluxa UI · Components · Spinner
+   A restrained, fast-spinning ring. Inherits color from currentColor.
+   ========================================================================== */
+
+.fx-spinner {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+  border-radius: var(--fx-radius-full);
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-inline-end-color: transparent;
+  animation: fx-spin 0.7s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes fx-spin {
+  to { transform: rotate(360deg); }
+}
+
+.fx-spinner-sm { font-size: 0.875rem; }
+.fx-spinner-lg { font-size: 1.75rem; border-width: 3px; }
+
+/* Semantic tint overrides color */
+.fx-spinner-primary { color: var(--fx-color-primary); }
+.fx-spinner-success { color: var(--fx-color-success); }
+.fx-spinner-danger { color: var(--fx-color-danger); }
+.fx-spinner-muted { color: var(--fx-color-text-muted); }
+.fx-spinner-invert { color: #fff; }

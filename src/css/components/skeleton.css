@@ -1,0 +1,44 @@
+/* ==========================================================================
+   Fluxa UI · Components · Skeleton
+   Loading placeholders with a soft shimmer that respects reduced motion.
+   ========================================================================== */
+
+.fx-skeleton {
+  display: block;
+  position: relative;
+  border-radius: var(--fx-radius-sm);
+  background: var(--fx-color-surface-sunken);
+  overflow: hidden;
+}
+
+.fx-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--fx-color-surface) 80%, transparent),
+    transparent
+  );
+  animation: fx-skeleton-shimmer 1.6s var(--fx-ease-in-out) infinite;
+}
+
+@keyframes fx-skeleton-shimmer {
+  to { transform: translateX(100%); }
+}
+
+.fx-skeleton-text { height: 0.875rem; margin-block-end: var(--fx-space-3); }
+.fx-skeleton-text:last-child { margin-block-end: 0; width: 60%; }
+.fx-skeleton-circle { border-radius: var(--fx-radius-full); }
+.fx-skeleton-block { height: 6rem; }
+
+/* Containers that group skeleton lines */
+.fx-skeleton-lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.fx-skeleton-lines .fx-skeleton { margin-block-end: var(--fx-space-2); }
+.fx-skeleton-lines .fx-skeleton:last-child { width: 45%; margin-block-end: 0; }

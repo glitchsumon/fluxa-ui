@@ -1,0 +1,148 @@
+/* ==========================================================================
+   Fluxa UI · Components · Badge
+   Small status indicators. Soft fills with a hard contrast dot accent.
+   ========================================================================== */
+
+.fx-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fx-space-1);
+  padding: 0.125rem 0.5rem;
+  font-size: var(--fx-text-xs);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: var(--fx-tracking-wide);
+  border-radius: var(--fx-radius-full);
+  white-space: nowrap;
+  vertical-align: middle;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-badge::before {
+  content: '';
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: var(--fx-radius-full);
+  background: currentColor;
+  flex: none;
+}
+
+/* Neutral */
+.fx-badge {
+  background: var(--fx-color-surface-sunken);
+  color: var(--fx-color-text-muted);
+  border: 1px solid var(--fx-color-border-subtle);
+}
+
+/* Semantic */
+.fx-badge-primary {
+  background: color-mix(in srgb, var(--fx-color-primary) 12%, transparent);
+  color: var(--fx-color-primary);
+  border-color: color-mix(in srgb, var(--fx-color-primary) 25%, transparent);
+}
+
+.fx-badge-success {
+  background: color-mix(in srgb, var(--fx-color-success) 12%, transparent);
+  color: var(--fx-color-success);
+  border-color: color-mix(in srgb, var(--fx-color-success) 25%, transparent);
+}
+
+.fx-badge-warning {
+  background: color-mix(in srgb, var(--fx-color-warning) 14%, transparent);
+  color: color-mix(in srgb, var(--fx-color-warning) 80%, var(--fx-color-text));
+  border-color: color-mix(in srgb, var(--fx-color-warning) 30%, transparent);
+}
+
+.fx-badge-danger {
+  background: color-mix(in srgb, var(--fx-color-danger) 12%, transparent);
+  color: var(--fx-color-danger);
+  border-color: color-mix(in srgb, var(--fx-color-danger) 25%, transparent);
+}
+
+.fx-badge-info {
+  background: color-mix(in srgb, var(--fx-color-info) 12%, transparent);
+  color: var(--fx-color-info);
+  border-color: color-mix(in srgb, var(--fx-color-info) 25%, transparent);
+}
+
+/* Solid (informational peak) */
+.fx-badge-solid-primary { background: var(--fx-color-primary); color: var(--fx-color-primary-contrast); border-color: transparent; }
+.fx-badge-solid-success { background: var(--fx-color-success); color: var(--fx-color-success-contrast); border-color: transparent; }
+.fx-badge-solid-warning { background: var(--fx-color-warning); color: var(--fx-color-warning-contrast); border-color: transparent; }
+.fx-badge-solid-danger { background: var(--fx-color-danger); color: var(--fx-color-danger-contrast); border-color: transparent; }
+.fx-badge-solid-info { background: var(--fx-color-info); color: var(--fx-color-info-contrast); border-color: transparent; }
+
+/* Without dot */
+.fx-badge-plain::before {
+  display: none;
+}
+
+/* Pulse dot for live status */
+.fx-badge-live::before {
+  background: currentColor;
+  animation: fx-pulse 2s var(--fx-ease-in-out) infinite;
+}
+
+@keyframes fx-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Tag (removable chips)
+   ------------------------------------------------------------------ */
+.fx-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fx-space-1);
+  padding: 0.25rem 0.625rem;
+  font-size: var(--fx-text-xs);
+  font-weight: 500;
+  border-radius: var(--fx-radius-sm);
+  background: var(--fx-color-surface-sunken);
+  border: 1px solid var(--fx-color-border);
+  color: var(--fx-color-text-muted);
+  white-space: nowrap;
+  transition:
+    border-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: var(--fx-radius-full);
+  color: var(--fx-color-text-subtle);
+  cursor: pointer;
+  transition:
+    background-color var(--fx-duration-fast) var(--fx-ease-out),
+    color var(--fx-duration-fast) var(--fx-ease-out);
+}
+
+.fx-tag-remove:hover {
+  background: color-mix(in srgb, var(--fx-color-danger) 14%, transparent);
+  color: var(--fx-color-danger);
+}
+
+.fx-tag-primary {
+  background: color-mix(in srgb, var(--fx-color-primary) 10%, transparent);
+  border-color: color-mix(in srgb, var(--fx-color-primary) 25%, transparent);
+  color: var(--fx-color-primary);
+}
+
+.fx-tag:hover {
+  border-color: var(--fx-color-border-strong);
+  color: var(--fx-color-text);
+}
