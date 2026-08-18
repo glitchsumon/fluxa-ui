@@ -133,20 +133,49 @@ function renderTopbar() {
   topbar.appendChild(right);
 }
 
+function caretSvg() {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('stroke-width', '2');
+  svg.setAttribute('stroke-linecap', 'round');
+  svg.setAttribute('stroke-linejoin', 'round');
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', 'M6 9l6 6 6-6');
+  svg.appendChild(path);
+  svg.classList.add('fx-doc-nav-caret');
+  return svg;
+}
+
 function renderSidebar() {
   const sidebar = document.getElementById('fx-doc-sidebar');
   if (!sidebar) return;
 
   const page = currentPage();
+  const activeGroup = NAV.find((group) => group.links.some((link) => link.href === page));
+  const initialOpen = activeGroup ? activeGroup.title : NAV[0].title;
 
-  NAV.forEach((group) => {
-    const title = document.createElement('div');
-    title.className = 'fx-doc-nav-title';
-    title.textContent = group.title;
-
+  NAV.forEach((group, index) => {
     const groupEl = document.createElement('div');
     groupEl.className = 'fx-doc-nav-group';
-    groupEl.appendChild(title);
+
+    const head = document.createElement('button');
+    head.className = 'fx-doc-nav-head';
+    head.type = 'button';
+    head.setAttribute('aria-expanded', group.title === initialOpen ? 'true' : 'false');
+    head.setAttribute('aria-controls', `fx-doc-nav-list-${index}`);
+
+    const title = document.createElement('span');
+    title.className = 'fx-doc-nav-title';
+    title.textContent = group.title;
+    head.appendChild(title);
+    head.appendChild(caretSvg());
+
+    const list = document.createElement('div');
+    list.className = 'fx-doc-nav-list';
+    list.id = `fx-doc-nav-list-${index}`;
+    if (group.title !== initialOpen) list.hidden = true;
 
     group.links.forEach((link) => {
       const a = document.createElement('a');
@@ -157,9 +186,24 @@ function renderSidebar() {
         a.classList.add('is-active');
         a.setAttribute('aria-current', 'page');
       }
-      groupEl.appendChild(a);
+      list.appendChild(a);
     });
 
+    head.addEventListener('click', () => {
+      const opening = list.hidden;
+      sidebar.querySelectorAll('.fx-doc-nav-list').forEach((l) => {
+        l.hidden = true;
+        const h = sidebar.querySelector(`[aria-controls="${l.id}"]`);
+        if (h) h.setAttribute('aria-expanded', 'false');
+      });
+      if (opening) {
+        list.hidden = false;
+        head.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    groupEl.appendChild(head);
+    groupEl.appendChild(list);
     sidebar.appendChild(groupEl);
   });
 
